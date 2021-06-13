@@ -1,0 +1,28 @@
+package io.prochyra.readinglist.acceptance;
+
+import io.prochyra.readinglist.WireMockTest;
+import io.prochyra.readinglist.domain.Book;
+import io.prochyra.readinglist.domain.Catalogue;
+import io.prochyra.readinglist.external.GoogleBooksCatalogue;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static org.assertj.core.api.BDDAssertions.then;
+
+@DisplayNameGeneration(ReplaceUnderscores.class)
+class ReadingListIT extends WireMockTest {
+
+    @Test
+    void should_return_a_list_of_five_books_matching_a_query() {
+        Catalogue catalogue = new GoogleBooksCatalogue("localhost:8080");
+        givenThat(get(anyUrl()).willReturn(ok().withBodyFile("volumes.json")));
+
+        List<Book> matchingBooks = catalogue.find("A Book Title");
+
+        then(matchingBooks).hasSize(5);
+    }
+}
