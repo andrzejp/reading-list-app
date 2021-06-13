@@ -1,400 +1,45 @@
 {
-  "kind": "books#volumes",
-  "totalItems": 2014,
   "items": [
     {
-      "kind": "books#volume",
-      "id": "kotPYEqx7kMC",
-      "etag": "e0n22oevpmk",
-      "selfLink": "https://www.googleapis.com/books/v1/volumes/kotPYEqx7kMC",
       "volumeInfo": {
         "title": "1984",
         "authors": [
           "George Orwell"
         ],
-        "publisher": "Houghton Mifflin Harcourt",
-        "publishedDate": "1983-10-17",
-        "description": "A PBS Great American Read Top 100 Pick With extraordinary relevance and renewed popularity, George Orwell’s 1984 takes on new life in this edition. “Orwell saw, to his credit, that the act of falsifying reality is only secondarily a way of changing perceptions. It is, above all, a way of asserting power.”—The New Yorker In 1984, London is a grim city in the totalitarian state of Oceania where Big Brother is always watching you and the Thought Police can practically read your mind. Winston Smith is a man in grave danger for the simple reason that his memory still functions. Drawn into a forbidden love affair, Winston finds the courage to join a secret revolutionary organization called The Brotherhood, dedicated to the destruction of the Party. Together with his beloved Julia, he hazards his life in a deadly match against the powers that be. Lionel Trilling said of Orwell’s masterpiece, “1984 is a profound, terrifying, and wholly fascinating book. It is a fantasy of the political future, and like any such fantasy, serves its author as a magnifying device for an examination of the present.” Though the year 1984 now exists in the past, Orwell’s novel remains an urgent call for the individual willing to speak truth to power.",
-        "industryIdentifiers": [
-          {
-            "type": "ISBN_13",
-            "identifier": "9780547249643"
-          },
-          {
-            "type": "ISBN_10",
-            "identifier": "0547249640"
-          }
-        ],
-        "readingModes": {
-          "text": true,
-          "image": true
-        },
-        "pageCount": 648,
-        "printType": "BOOK",
-        "categories": [
-          "Fiction"
-        ],
-        "averageRating": 4.5,
-        "ratingsCount": 77,
-        "maturityRating": "NOT_MATURE",
-        "allowAnonLogging": true,
-        "contentVersion": "2.25.22.0.preview.3",
-        "panelizationSummary": {
-          "containsEpubBubbles": false,
-          "containsImageBubbles": false
-        },
-        "imageLinks": {
-          "smallThumbnail": "http://books.google.com/books/content?id=kotPYEqx7kMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-          "thumbnail": "http://books.google.com/books/content?id=kotPYEqx7kMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-        },
-        "language": "en",
-        "previewLink": "http://books.google.co.uk/books?id=kotPYEqx7kMC&printsec=frontcover&dq=1984&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
-        "infoLink": "https://play.google.com/store/books/details?id=kotPYEqx7kMC&source=gbs_api",
-        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=kotPYEqx7kMC"
-      },
-      "saleInfo": {
-        "country": "GB",
-        "saleability": "FOR_SALE",
-        "isEbook": true,
-        "listPrice": {
-          "amount": 9.49,
-          "currencyCode": "GBP"
-        },
-        "retailPrice": {
-          "amount": 6.64,
-          "currencyCode": "GBP"
-        },
-        "buyLink": "https://play.google.com/store/books/details?id=kotPYEqx7kMC&rdid=book-kotPYEqx7kMC&rdot=1&source=gbs_api",
-        "offers": [
-          {
-            "finskyOfferType": 1,
-            "listPrice": {
-              "amountInMicros": 9490000,
-              "currencyCode": "GBP"
-            },
-            "retailPrice": {
-              "amountInMicros": 6640000,
-              "currencyCode": "GBP"
-            },
-            "giftable": true
-          }
-        ]
-      },
-      "accessInfo": {
-        "country": "GB",
-        "viewability": "PARTIAL",
-        "embeddable": true,
-        "publicDomain": false,
-        "textToSpeechPermission": "ALLOWED",
-        "epub": {
-          "isAvailable": true,
-          "acsTokenLink": "http://books.google.co.uk/books/download/1984-sample-epub.acsm?id=kotPYEqx7kMC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
-        },
-        "pdf": {
-          "isAvailable": true,
-          "acsTokenLink": "http://books.google.co.uk/books/download/1984-sample-pdf.acsm?id=kotPYEqx7kMC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
-        },
-        "webReaderLink": "http://play.google.com/books/reader?id=kotPYEqx7kMC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
-        "accessViewStatus": "SAMPLE",
-        "quoteSharingAllowed": false
-      },
-      "searchInfo": {
-        "textSnippet": "A PBS Great American Read Top 100 Pick With extraordinary relevance and renewed popularity, George Orwell’s 1984 takes on new life in this edition. “Orwell saw, to his credit, that the act of falsifying reality is only secondarily a way ..."
+        "publisher": "Houghton Mifflin Harcourt"
       }
     },
     {
-      "kind": "books#volume",
-      "id": "yxv1LK5gyV4C",
-      "etag": "mZ+Y+7KXGE0",
-      "selfLink": "https://www.googleapis.com/books/v1/volumes/yxv1LK5gyV4C",
+      "volumeInfo": {
+        "title": "The Year Book Of World Affairs 1984",
+        "authors": [
+          "George W Keeton",
+          "Georg Schwarzenberger"
+        ],
+        "publisher": "Routledge"
+      }
+    },
+    {
       "volumeInfo": {
         "title": "1984",
-        "subtitle": "A Novel",
         "authors": [
           "George Orwell"
         ],
-        "publisher": "Univ. Press of Mississippi",
-        "publishedDate": "1977",
-        "description": "Portrays life in a future time when a totalitarian government watches over all citizens and directs all activities.",
-        "industryIdentifiers": [
-          {
-            "type": "ISBN_10",
-            "identifier": "0451524934"
-          },
-          {
-            "type": "ISBN_13",
-            "identifier": "9780451524935"
-          }
-        ],
-        "readingModes": {
-          "text": false,
-          "image": false
-        },
-        "pageCount": 328,
-        "printType": "BOOK",
-        "categories": [
-          "Fiction"
-        ],
-        "averageRating": 4,
-        "ratingsCount": 2320,
-        "maturityRating": "NOT_MATURE",
-        "allowAnonLogging": false,
-        "contentVersion": "1.7.1.0.preview.0",
-        "panelizationSummary": {
-          "containsEpubBubbles": false,
-          "containsImageBubbles": false
-        },
-        "imageLinks": {
-          "smallThumbnail": "http://books.google.com/books/content?id=yxv1LK5gyV4C&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-          "thumbnail": "http://books.google.com/books/content?id=yxv1LK5gyV4C&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-        },
-        "language": "en",
-        "previewLink": "http://books.google.co.uk/books?id=yxv1LK5gyV4C&dq=1984&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
-        "infoLink": "http://books.google.co.uk/books?id=yxv1LK5gyV4C&dq=1984&hl=&as_pt=BOOKS&source=gbs_api",
-        "canonicalVolumeLink": "https://books.google.com/books/about/1984.html?hl=&id=yxv1LK5gyV4C"
-      },
-      "saleInfo": {
-        "country": "GB",
-        "saleability": "NOT_FOR_SALE",
-        "isEbook": false
-      },
-      "accessInfo": {
-        "country": "GB",
-        "viewability": "NO_PAGES",
-        "embeddable": false,
-        "publicDomain": false,
-        "textToSpeechPermission": "ALLOWED",
-        "epub": {
-          "isAvailable": false
-        },
-        "pdf": {
-          "isAvailable": false
-        },
-        "webReaderLink": "http://play.google.com/books/reader?id=yxv1LK5gyV4C&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
-        "accessViewStatus": "NONE",
-        "quoteSharingAllowed": false
-      },
-      "searchInfo": {
-        "textSnippet": "No one can deny the novel&#39;s hold on the imaginations of whole generations, or the power of its admonitions-a power that seems to grow, not lessen, with the passage of time."
+        "publisher": "General Press"
       }
     },
     {
-      "kind": "books#volume",
-      "id": "H_E8g63ggDwC",
-      "etag": "AYdWx5PCcN8",
-      "selfLink": "https://www.googleapis.com/books/v1/volumes/H_E8g63ggDwC",
       "volumeInfo": {
-        "title": "Older Americans Act Amendments of 1984",
-        "subtitle": "Hearing Before the Subcommittee on Human Resources of the Committee on Education and Labor, House of Representatives, Ninety-eighth Congress, Second Session, on H.R. 4785 ... Hearing Held in Washington, DC, on March 15, 1984",
+        "title": "Agricultural Sample Survey, 1991/92 (1984 E.C.)"
+      }
+    },
+    {
+      "volumeInfo": {
+        "title": "Nineteen Eighty-four",
         "authors": [
-          "United States. Congress. House. Committee on Education and Labor. Subcommittee on Human Resources"
+          "George Orwell"
         ],
-        "publishedDate": "1985",
-        "industryIdentifiers": [
-          {
-            "type": "OTHER",
-            "identifier": "UCBK:C063895526"
-          }
-        ],
-        "readingModes": {
-          "text": false,
-          "image": true
-        },
-        "pageCount": 564,
-        "printType": "BOOK",
-        "categories": [
-          "Old age assistance"
-        ],
-        "maturityRating": "NOT_MATURE",
-        "allowAnonLogging": false,
-        "contentVersion": "0.2.2.0.full.1",
-        "panelizationSummary": {
-          "containsEpubBubbles": false,
-          "containsImageBubbles": false
-        },
-        "imageLinks": {
-          "smallThumbnail": "http://books.google.com/books/content?id=H_E8g63ggDwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-          "thumbnail": "http://books.google.com/books/content?id=H_E8g63ggDwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-        },
-        "language": "en",
-        "previewLink": "http://books.google.co.uk/books?id=H_E8g63ggDwC&pg=PP1&dq=1984&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
-        "infoLink": "https://play.google.com/store/books/details?id=H_E8g63ggDwC&source=gbs_api",
-        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=H_E8g63ggDwC"
-      },
-      "saleInfo": {
-        "country": "GB",
-        "saleability": "FREE",
-        "isEbook": true,
-        "buyLink": "https://play.google.com/store/books/details?id=H_E8g63ggDwC&rdid=book-H_E8g63ggDwC&rdot=1&source=gbs_api"
-      },
-      "accessInfo": {
-        "country": "GB",
-        "viewability": "ALL_PAGES",
-        "embeddable": true,
-        "publicDomain": true,
-        "textToSpeechPermission": "ALLOWED",
-        "epub": {
-          "isAvailable": false,
-          "downloadLink": "http://books.google.co.uk/books/download/Older_Americans_Act_Amendments_of_1984.epub?id=H_E8g63ggDwC&hl=&output=epub&source=gbs_api"
-        },
-        "pdf": {
-          "isAvailable": false
-        },
-        "webReaderLink": "http://play.google.com/books/reader?id=H_E8g63ggDwC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
-        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
-        "quoteSharingAllowed": false
-      }
-    },
-    {
-      "kind": "books#volume",
-      "id": "4ACeVWyYaiUC",
-      "etag": "x3zdn/INi+Y",
-      "selfLink": "https://www.googleapis.com/books/v1/volumes/4ACeVWyYaiUC",
-      "volumeInfo": {
-        "title": "International Study Missions",
-        "subtitle": "Summary Report 1984",
-        "authors": [
-          "United States. Congress. House. Select Committee on Narcotics Abuse and Control"
-        ],
-        "publishedDate": "1984",
-        "industryIdentifiers": [
-          {
-            "type": "OTHER",
-            "identifier": "SRLF:AA0001556778"
-          }
-        ],
-        "readingModes": {
-          "text": false,
-          "image": true
-        },
-        "pageCount": 59,
-        "printType": "BOOK",
-        "categories": [
-          "Drug abuse"
-        ],
-        "maturityRating": "NOT_MATURE",
-        "allowAnonLogging": false,
-        "contentVersion": "0.1.2.0.full.1",
-        "panelizationSummary": {
-          "containsEpubBubbles": false,
-          "containsImageBubbles": false
-        },
-        "imageLinks": {
-          "smallThumbnail": "http://books.google.com/books/content?id=4ACeVWyYaiUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-          "thumbnail": "http://books.google.com/books/content?id=4ACeVWyYaiUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-        },
-        "language": "en",
-        "previewLink": "http://books.google.co.uk/books?id=4ACeVWyYaiUC&pg=PP1&dq=1984&hl=&as_pt=BOOKS&cd=4&source=gbs_api",
-        "infoLink": "https://play.google.com/store/books/details?id=4ACeVWyYaiUC&source=gbs_api",
-        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=4ACeVWyYaiUC"
-      },
-      "saleInfo": {
-        "country": "GB",
-        "saleability": "FREE",
-        "isEbook": true,
-        "buyLink": "https://play.google.com/store/books/details?id=4ACeVWyYaiUC&rdid=book-4ACeVWyYaiUC&rdot=1&source=gbs_api"
-      },
-      "accessInfo": {
-        "country": "GB",
-        "viewability": "ALL_PAGES",
-        "embeddable": true,
-        "publicDomain": true,
-        "textToSpeechPermission": "ALLOWED",
-        "epub": {
-          "isAvailable": false,
-          "downloadLink": "http://books.google.co.uk/books/download/International_Study_Missions.epub?id=4ACeVWyYaiUC&hl=&output=epub&source=gbs_api"
-        },
-        "pdf": {
-          "isAvailable": false
-        },
-        "webReaderLink": "http://play.google.com/books/reader?id=4ACeVWyYaiUC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
-        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
-        "quoteSharingAllowed": false
-      }
-    },
-    {
-      "kind": "books#volume",
-      "id": "VqfRRlyXsk8C",
-      "etag": "nnahF2CDp0w",
-      "selfLink": "https://www.googleapis.com/books/v1/volumes/VqfRRlyXsk8C",
-      "volumeInfo": {
-        "title": "Proceedings of The Academy of Natural Sciences Special Publication 14, 1984",
-        "publisher": "Academy of Natural Sciences",
-        "industryIdentifiers": [
-          {
-            "type": "ISBN_10",
-            "identifier": "1437955320"
-          },
-          {
-            "type": "ISBN_13",
-            "identifier": "9781437955323"
-          }
-        ],
-        "readingModes": {
-          "text": false,
-          "image": true
-        },
-        "printType": "BOOK",
-        "maturityRating": "NOT_MATURE",
-        "allowAnonLogging": false,
-        "contentVersion": "0.0.1.0.preview.1",
-        "panelizationSummary": {
-          "containsEpubBubbles": false,
-          "containsImageBubbles": false
-        },
-        "imageLinks": {
-          "smallThumbnail": "http://books.google.com/books/content?id=VqfRRlyXsk8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-          "thumbnail": "http://books.google.com/books/content?id=VqfRRlyXsk8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-        },
-        "language": "en",
-        "previewLink": "http://books.google.co.uk/books?id=VqfRRlyXsk8C&printsec=frontcover&dq=1984&hl=&as_pt=BOOKS&cd=5&source=gbs_api",
-        "infoLink": "https://play.google.com/store/books/details?id=VqfRRlyXsk8C&source=gbs_api",
-        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=VqfRRlyXsk8C"
-      },
-      "saleInfo": {
-        "country": "GB",
-        "saleability": "FOR_SALE",
-        "isEbook": true,
-        "listPrice": {
-          "amount": 10.99,
-          "currencyCode": "GBP"
-        },
-        "retailPrice": {
-          "amount": 10.99,
-          "currencyCode": "GBP"
-        },
-        "buyLink": "https://play.google.com/store/books/details?id=VqfRRlyXsk8C&rdid=book-VqfRRlyXsk8C&rdot=1&source=gbs_api",
-        "offers": [
-          {
-            "finskyOfferType": 1,
-            "listPrice": {
-              "amountInMicros": 10990000,
-              "currencyCode": "GBP"
-            },
-            "retailPrice": {
-              "amountInMicros": 10990000,
-              "currencyCode": "GBP"
-            },
-            "giftable": true
-          }
-        ]
-      },
-      "accessInfo": {
-        "country": "GB",
-        "viewability": "ALL_PAGES",
-        "embeddable": true,
-        "publicDomain": false,
-        "textToSpeechPermission": "ALLOWED",
-        "epub": {
-          "isAvailable": false
-        },
-        "pdf": {
-          "isAvailable": true,
-          "acsTokenLink": "http://books.google.co.uk/books/download/Proceedings_of_The_Academy_of_Natural_Sc-sample-pdf.acsm?id=VqfRRlyXsk8C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
-        },
-        "webReaderLink": "http://play.google.com/books/reader?id=VqfRRlyXsk8C&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
-        "accessViewStatus": "SAMPLE",
-        "quoteSharingAllowed": false
+        "publisher": "Large Print Press"
       }
     }
   ]

@@ -36,7 +36,7 @@ public class GoogleBooksCatalogue implements Catalogue {
         }
 
         HttpRequest request = newBuilder(
-                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&q="
+                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q="
                        + encode(query, UTF_8)))
                 .GET()
                 .build();
@@ -60,10 +60,10 @@ public class GoogleBooksCatalogue implements Catalogue {
         if (query.equals("1984")) {
             return List.of(
                     new Book("1984", "George Orwell", "Houghton Mifflin Harcourt"),
-                    new Book("1984", "George Orwell", "Univ. Press of Mississippi"),
-                    new Book("Older Americans Act Amendments of 1984", "United States. Congress. House. Committee on Education and Labor. Subcommittee on Human Resources", "UNKNOWN"),
-                    new Book("International Study Missions", "United States. Congress. House. Select Committee on Narcotics Abuse and Control", "UNKNOWN"),
-                    new Book("Proceedings of The Academy of Natural Sciences Special Publication 14, 1984", "UNKNOWN", "Academy of Natural Sciences"));
+                    new Book("The Year Book Of World Affairs 1984", "George W Keeton", "Routledge"),
+                    new Book("1984", "George Orwell", "General Press"),
+                    new Book("Agricultural Sample Survey, 1991/92 (1984 E.C.)", "UNKNOWN", "UNKNOWN"),
+                    new Book("Nineteen Eighty-four", "George Orwell", "Large Print Press"));
         }
 
         return List.of(
