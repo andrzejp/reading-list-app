@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Catalogue {
 
-    List<Book> find(String query);
+    List<Book> find(String query) throws CatalogueException;
 }

@@ -3,6 +3,7 @@ package io.prochyra.readinglist.external;
 import io.prochyra.readinglist.WireMockTest;
 import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
+import io.prochyra.readinglist.domain.CatalogueException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.assertj.core.api.BDDAssertions.then;
+import static org.assertj.core.api.BDDAssertions.thenExceptionOfType;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class GoogleBooksCatalogueTest extends WireMockTest {
@@ -25,12 +27,12 @@ class GoogleBooksCatalogueTest extends WireMockTest {
     }
 
     @Test
-    void should_find_no_books_for_an_empty_query() {
+    void should_find_no_books_for_an_empty_query() throws CatalogueException {
         then(catalogue.find("")).isEmpty();
     }
 
     @Test
-    void should_find_five_matching_books_if_at_least_five_match_the_query() {
+    void should_find_five_matching_books_if_at_least_five_match_the_query() throws CatalogueException {
         givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=1984")
                 .willReturn(ok().withBodyFile("volumes.json")));
 
@@ -47,5 +49,14 @@ class GoogleBooksCatalogueTest extends WireMockTest {
                         "UNKNOWN", "Academy of Natural Sciences"));
 
         then(catalogue.find("1984")).containsAll(expectedBooks);
+    }
+
+    @Test
+    void should_throw_an_exception_on_error_response_from_Google() {
+        givenThat(get(anyUrl()).willReturn(notFound()));
+
+        thenExceptionOfType(CatalogueException.class)
+                .isThrownBy(() -> catalogue.find("1984"))
+                .withMessage("There was a problem accessing the Google Books API. Status code was 404");
     }
 }
