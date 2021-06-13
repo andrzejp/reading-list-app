@@ -8,9 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +23,10 @@ import static java.net.URLEncoder.encode;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.assertj.core.api.BDDAssertions.thenExceptionOfType;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 
+@ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class GoogleBooksCatalogueTest extends WireMockTest {
 
@@ -37,11 +44,13 @@ class GoogleBooksCatalogueTest extends WireMockTest {
                     new Book("Brief Candles. Four Stories.", "Aldous Huxley", "Wildside Press LLC"),
                     new Book("Brave New World Revisited", "Aldous Huxley", "Random House"))
     );
-    private Catalogue catalogue;
+    @Mock
+    GoogleBookAdapter bookAdapter;
+    Catalogue catalogue;
 
     @BeforeEach
     void setUp() {
-        catalogue = new GoogleBooksCatalogue("localhost:8080");
+        catalogue = new GoogleBooksCatalogue("localhost:8080", bookAdapter);
     }
 
     @Test
@@ -51,10 +60,12 @@ class GoogleBooksCatalogueTest extends WireMockTest {
 
     @ParameterizedTest(name = "Query \"{0}\" returns books from response \"{1}\"")
     @CsvSource({"1984, 1984_volumes.json", "'brave new world', bnw_volumes.json"})
-    void should_find_five_matching_books_if_at_least_five_match_the_query(String query, String fileName) throws CatalogueException {
+    void should_find_five_matching_books_if_at_least_five_match_the_query(String query, String fileName) throws Exception {
         givenThat(get("/books/v1/volumes?maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q="
                       + encode(query, UTF_8))
                 .willReturn(ok().withBodyFile(fileName)));
+
+        given(bookAdapter.adaptFromJson(any())).willReturn(new ArrayList<>(expectedBooks.get(query)));
 
         then(catalogue.find(query)).containsAll(expectedBooks.get(query));
     }

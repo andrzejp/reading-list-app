@@ -3,11 +3,17 @@ package io.prochyra.readinglist.external;
 import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
 import io.prochyra.readinglist.domain.CatalogueException;
+import jakarta.json.JsonObject;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+import jakarta.json.bind.JsonbConfig;
+import jakarta.json.bind.adapter.JsonbAdapter;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.net.HttpURLConnection.HTTP_OK;
@@ -21,12 +27,14 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public class GoogleBooksCatalogue implements Catalogue {
 
     private final String hostName;
+    private final JsonbAdapter<ArrayList<Book>, JsonObject> bookAdapter;
     private final HttpClient client = HttpClient.newBuilder()
             .followRedirects(NORMAL)
             .build();
 
-    public GoogleBooksCatalogue(String hostName) {
+    public GoogleBooksCatalogue(String hostName, JsonbAdapter<ArrayList<Book>, JsonObject> bookAdapter) {
         this.hostName = hostName;
+        this.bookAdapter = bookAdapter;
     }
 
     @Override
@@ -41,10 +49,10 @@ public class GoogleBooksCatalogue implements Catalogue {
                 .GET()
                 .build();
 
-        HttpResponse<String> resp;
+        HttpResponse<String> response;
 
         try {
-            resp = client.send(request, ofString());
+            response = client.send(request, ofString());
         } catch (IOException e) {
             throw new CatalogueException("There was a problem accessing the Google Books API", e);
         } catch (InterruptedException e) {
@@ -52,27 +60,14 @@ public class GoogleBooksCatalogue implements Catalogue {
             throw new CatalogueException("There was a problem accessing the Google Books API", e);
         }
 
-        if (resp.statusCode() != HTTP_OK) {
+        if (response.statusCode() != HTTP_OK) {
             throw new CatalogueException("There was a problem accessing the Google Books API. Status code was "
-                                         + resp.statusCode());
+                                         + response.statusCode());
         }
 
-        if (query.equals("1984")) {
-            return List.of(
-                    new Book("1984", "George Orwell", "Houghton Mifflin Harcourt"),
-                    new Book("The Year Book Of World Affairs 1984", "George W Keeton", "Routledge"),
-                    new Book("1984", "George Orwell", "General Press"),
-                    new Book("Agricultural Sample Survey, 1991/92 (1984 E.C.)", "UNKNOWN", "UNKNOWN"),
-                    new Book("Nineteen Eighty-four", "George Orwell", "Large Print Press"));
-        }
+        JsonbConfig config = new JsonbConfig().withAdapters(bookAdapter);
+        Jsonb jsonb = JsonbBuilder.create(config);
 
-        return List.of(
-                new Book("Brave New World", "Aldous Huxley", "Random House"),
-                new Book("Brave New World", "Aldous Huxley", "Longman"),
-                new Book("Brave New World and Brave New World Revisited",
-                        "Aldous Huxley", "Harper Collins"),
-                new Book("Brief Candles. Four Stories.", "Aldous Huxley", "Wildside Press LLC"),
-                new Book("Brave New World Revisited", "Aldous Huxley", "Random House"));
-
+        return jsonb.fromJson(response.body(), new ArrayList<Book>(){}.getClass().getGenericSuperclass());
     }
 }

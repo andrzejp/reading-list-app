@@ -29,6 +29,7 @@
         <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
         <maven.version>3.1.0</maven.version>
         <wiremock-jre8.version>2.28.1</wiremock-jre8.version>
+        <yasson.version>2.0.2</yasson.version>
     </properties>
 
     <dependencies>
@@ -65,6 +66,12 @@
             <artifactId>wiremock-jre8</artifactId>
             <version>${wiremock-jre8.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>${yasson.version}</version>
         </dependency>
     </dependencies>
 
