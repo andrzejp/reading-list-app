@@ -34,7 +34,7 @@ public class GoogleBooksCatalogue implements Catalogue {
         }
 
         HttpRequest request = newBuilder(
-                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&q=1984"))
+                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&q=" + query))
                 .GET()
                 .build();
 

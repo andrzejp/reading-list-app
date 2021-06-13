@@ -33,7 +33,9 @@ class GoogleBooksCatalogueTest extends WireMockTest {
 
     @Test
     void should_find_five_matching_books_if_at_least_five_match_the_query() throws CatalogueException {
-        givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=1984")
+        String query = "1984";
+
+        givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=" + query)
                 .willReturn(ok().withBodyFile("volumes.json")));
 
         Collection<Book> expectedBooks = List.of(
@@ -48,7 +50,7 @@ class GoogleBooksCatalogueTest extends WireMockTest {
                 new Book("Proceedings of The Academy of Natural Sciences Special Publication 14, 1984",
                         "UNKNOWN", "Academy of Natural Sciences"));
 
-        then(catalogue.find("1984")).containsAll(expectedBooks);
+        then(catalogue.find(query)).containsAll(expectedBooks);
     }
 
     @Test
