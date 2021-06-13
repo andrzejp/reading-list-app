@@ -3,6 +3,7 @@ package io.prochyra.readinglist.external;
 import io.prochyra.readinglist.WireMockTest;
 import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -16,16 +17,20 @@ import static org.assertj.core.api.BDDAssertions.then;
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class GoogleBooksCatalogueTest extends WireMockTest {
 
+    private Catalogue catalogue;
+
+    @BeforeEach
+    void setUp() {
+        catalogue = new GoogleBooksCatalogue("localhost:8080");
+    }
+
     @Test
     void should_find_no_books_for_an_empty_query() {
-        GoogleBooksCatalogue catalogue = new GoogleBooksCatalogue("");
         then(catalogue.find("")).isEmpty();
     }
 
     @Test
     void should_find_five_books_if_at_least_five_books_match_the_query() {
-        Catalogue catalogue = new GoogleBooksCatalogue("localhost:8080");
-
         givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=1984")
                 .willReturn(ok().withBodyFile("volumes.json")));
 
@@ -34,8 +39,6 @@ class GoogleBooksCatalogueTest extends WireMockTest {
 
     @Test
     void should_find_five_matching_books_if_at_least_five_match_the_query() {
-        Catalogue catalogue = new GoogleBooksCatalogue("localhost:8080");
-
         givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=1984")
                 .willReturn(ok().withBodyFile("volumes.json")));
 
