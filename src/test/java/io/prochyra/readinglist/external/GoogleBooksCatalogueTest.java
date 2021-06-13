@@ -30,14 +30,6 @@ class GoogleBooksCatalogueTest extends WireMockTest {
     }
 
     @Test
-    void should_find_five_books_if_at_least_five_books_match_the_query() {
-        givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=1984")
-                .willReturn(ok().withBodyFile("volumes.json")));
-
-        then(catalogue.find("1984")).hasSize(5);
-    }
-
-    @Test
     void should_find_five_matching_books_if_at_least_five_match_the_query() {
         givenThat(get("/books/v1/volumes?maxResults=5&printType=books&q=1984")
                 .willReturn(ok().withBodyFile("volumes.json")));
