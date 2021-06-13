@@ -1,0 +1,423 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 2072,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "kKh5Dyqxx-QC",
+      "etag": "/mOhTxx2XUU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/kKh5Dyqxx-QC",
+      "volumeInfo": {
+        "title": "Brave New World",
+        "authors": [
+          "Aldous Huxley"
+        ],
+        "publisher": "Random House",
+        "publishedDate": "2008-12-26",
+        "description": "Brave New World predicts - with eerie clarity - a terrifying vision of the future. Read the dystopian classic that inspired the Sky TV series. EVERYONE BELONGS TO EVERYONE ELSE Welcome to New London. Everybody is happy here. Our perfect society achieved peace and stability through the prohibition of monogamy, privacy, money, family and history itself. Now everyone belongs. You can be happy too. All you need to do is take your Soma pills. Discover the brave new world of Aldous Huxley's classic novel, written in 1932, which prophesied a society which expects maximum pleasure and accepts complete surveillance - no matter what the cost. 'A masterpiece of speculation... As vibrant, fresh, and somehow shocking as it was when I first read it' Margaret Atwood, bestselling author of The Handmaid's Tale 'A grave warning... Provoking, stimulating, shocking and dazzling' Observer **One of the BBC's 100 Novels That Shaped Our World**",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781407021010"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "140702101X"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 288,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 2995,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.39.27.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=kKh5Dyqxx-QC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=kKh5Dyqxx-QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "un",
+        "previewLink": "http://books.google.co.uk/books?id=kKh5Dyqxx-QC&printsec=frontcover&dq=brave+new+world&hl=&as_pt=BOOKS&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=kKh5Dyqxx-QC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=kKh5Dyqxx-QC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 3.99,
+          "currencyCode": "GBP"
+        },
+        "retailPrice": {
+          "amount": 3.99,
+          "currencyCode": "GBP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=kKh5Dyqxx-QC&rdid=book-kKh5Dyqxx-QC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 3990000,
+              "currencyCode": "GBP"
+            },
+            "retailPrice": {
+              "amountInMicros": 3990000,
+              "currencyCode": "GBP"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/Brave_New_World-sample-epub.acsm?id=kKh5Dyqxx-QC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=kKh5Dyqxx-QC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Brave New World predicts - with eerie clarity - a terrifying vision of the future. Read the dystopian classic that inspired the Sky TV series. EVERYONE BELONGS TO EVERYONE ELSE Welcome to New London. Everybody is happy here."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "zyePPwAACAAJ",
+      "etag": "YCgjGsDIHhM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/zyePPwAACAAJ",
+      "volumeInfo": {
+        "title": "Brave New World",
+        "authors": [
+          "Aldous Huxley"
+        ],
+        "publisher": "Longman",
+        "publishedDate": "2009-02-27",
+        "description": "Huxley's story shows a futuristic World State where all emotion, love, art, and human individuality have been replaced by social stability. An ominous warning to the world's population, this literary classic is a must-read.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "1405882581"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9781405882583"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 121,
+        "printType": "BOOK",
+        "categories": [
+          "Foreign Language Study"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 2996,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=zyePPwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=zyePPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "un",
+        "previewLink": "http://books.google.co.uk/books?id=zyePPwAACAAJ&dq=brave+new+world&hl=&as_pt=BOOKS&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=zyePPwAACAAJ&dq=brave+new+world&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Brave_New_World.html?hl=&id=zyePPwAACAAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=zyePPwAACAAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Huxley&#39;s story shows a futuristic World State where all emotion, love, art, and human individuality have been replaced by social stability. An ominous warning to the world&#39;s population, this literary classic is a must-read."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3h9eNAyQWzAC",
+      "etag": "14NufNbW4I4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3h9eNAyQWzAC",
+      "volumeInfo": {
+        "title": "Brave New World and Brave New World Revisited",
+        "authors": [
+          "Aldous Huxley"
+        ],
+        "publisher": "Harper Collins",
+        "publishedDate": "2005-07-05",
+        "description": "The astonishing novel Brave New World, originally published in 1932, presents Aldous Huxley's vision of the future -- of a world utterly transformed. Through the most efficient scientific and psychological engineering, people are genetically designed to be passive and therefore consistently useful to the ruling class. This powerful work of speculative fiction sheds a blazing critical light on the present and is considered to be Huxley's most enduring masterpiece. Following Brave New World is the nonfiction work Brave New World Revisited, first published in 1958. It is a fascinating work in which Huxley uses his tremendous knowledge of human relations to compare the modern-day world with the prophetic fantasy envisioned in Brave New World, including threats to humanity, such as overpopulation, propaganda, and chemical persuasion.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780060776091"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0060776099"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 384,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 3,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.0.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3h9eNAyQWzAC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3h9eNAyQWzAC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "un",
+        "previewLink": "http://books.google.co.uk/books?id=3h9eNAyQWzAC&dq=brave+new+world&hl=&as_pt=BOOKS&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=3h9eNAyQWzAC&dq=brave+new+world&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Brave_New_World_and_Brave_New_World_Revi.html?hl=&id=3h9eNAyQWzAC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3h9eNAyQWzAC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The astonishing novel Brave New World, originally published in 1932, presents Aldous Huxley&#39;s vision of the future -- of a world utterly transformed."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "XUIjEAAAQBAJ",
+      "etag": "n+L8YXLmZAc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/XUIjEAAAQBAJ",
+      "volumeInfo": {
+        "title": "Brief Candles. Four Stories.",
+        "authors": [
+          "Aldous Huxley"
+        ],
+        "publisher": "Wildside Press LLC",
+        "publishedDate": "2021-03-12",
+        "description": "Brief Candles (1930), Aldous Huxley's fifth collection of short fiction, consists of the following four short stories: \"Chawdron\" \"The Rest Cure\" \"The Claxtons\" \"After the Fireworks\" Brief Candles takes its title from a line in William Shakespeare's Macbeth, from Macbeth's famous soliloquy: \"Out, out, brief candle! Life's but a walking shadow, a poor player that struts and frets his hour upon the stage and then is heard no more: it is a tale told by an idiot, full of sound and fury, signifying nothing.\"",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781479457595"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1479457590"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 249,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=XUIjEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=XUIjEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=XUIjEAAAQBAJ&dq=brave+new+world&hl=&as_pt=BOOKS&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=XUIjEAAAQBAJ&dq=brave+new+world&hl=&as_pt=BOOKS&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Brief_Candles_Four_Stories.html?hl=&id=XUIjEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=XUIjEAAAQBAJ&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Brief Candles (1930), Aldous Huxley&#39;s fifth collection of short fiction, consists of the following four short stories: &quot;Chawdron&quot; &quot;The Rest Cure&quot; &quot;The Claxtons&quot; &quot;After the Fireworks&quot; Brief Candles takes its title from a line in William ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "uXimvGx0GRMC",
+      "etag": "cb07+nodkaA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/uXimvGx0GRMC",
+      "volumeInfo": {
+        "title": "Brave New World Revisited",
+        "authors": [
+          "Aldous Huxley"
+        ],
+        "publisher": "Random House",
+        "publishedDate": "2008-12-26",
+        "description": "In his 1932 classic dystopian novel, Brave New World, Aldous Huxley depicted a future society in thrall to science and regulated by sophisticated methods of social control. Nearly thirty years later in Brave New World Revisited, Huxley checked the progress of his prophecies against reality and argued that many of his fictional fantasies had grown uncomfortably close to the truth. Brave New World Revisited includes Huxley's views on overpopulation, propaganda, advertising and government control, and is an urgent and powerful appeal for the defence of individualism still alarmingly relevant today.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781407020914"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1407020919"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 176,
+        "printType": "BOOK",
+        "categories": [
+          "Literary Collections"
+        ],
+        "averageRating": 3.5,
+        "ratingsCount": 9,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "4.7.6.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=uXimvGx0GRMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=uXimvGx0GRMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "un",
+        "previewLink": "http://books.google.co.uk/books?id=uXimvGx0GRMC&printsec=frontcover&dq=brave+new+world&hl=&as_pt=BOOKS&cd=5&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=uXimvGx0GRMC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=uXimvGx0GRMC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 4.99,
+          "currencyCode": "GBP"
+        },
+        "retailPrice": {
+          "amount": 4.99,
+          "currencyCode": "GBP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=uXimvGx0GRMC&rdid=book-uXimvGx0GRMC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 4990000,
+              "currencyCode": "GBP"
+            },
+            "retailPrice": {
+              "amountInMicros": 4990000,
+              "currencyCode": "GBP"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/Brave_New_World_Revisited-sample-epub.acsm?id=uXimvGx0GRMC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=uXimvGx0GRMC&hl=&as_pt=BOOKS&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Brave New World Revisited includes Huxley&#39;s views on overpopulation, propaganda, advertising and government control, and is an urgent and powerful appeal for the defence of individualism still alarmingly relevant today."
+      }
+    }
+  ]
+}

@@ -20,7 +20,7 @@ class ReadingListIT extends WireMockTest {
     @Test
     void should_return_a_list_of_five_books_matching_a_query() throws CatalogueException {
         Catalogue catalogue = new GoogleBooksCatalogue("localhost:8080");
-        givenThat(get(anyUrl()).willReturn(ok().withBodyFile("volumes.json")));
+        givenThat(get(anyUrl()).willReturn(ok().withBodyFile("1984_volumes.json")));
 
         List<Book> matchingBooks = catalogue.find("A Book Title");
 

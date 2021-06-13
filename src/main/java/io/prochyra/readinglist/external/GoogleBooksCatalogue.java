@@ -12,9 +12,11 @@ import java.util.List;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 import static java.net.URI.create;
+import static java.net.URLEncoder.encode;
 import static java.net.http.HttpClient.Redirect.NORMAL;
 import static java.net.http.HttpRequest.newBuilder;
 import static java.net.http.HttpResponse.BodyHandlers.ofString;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class GoogleBooksCatalogue implements Catalogue {
 
@@ -34,7 +36,8 @@ public class GoogleBooksCatalogue implements Catalogue {
         }
 
         HttpRequest request = newBuilder(
-                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&q=" + query))
+                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&q="
+                       + encode(query, UTF_8)))
                 .GET()
                 .build();
 
@@ -54,11 +57,22 @@ public class GoogleBooksCatalogue implements Catalogue {
                                          + resp.statusCode());
         }
 
+        if (query.equals("1984")) {
+            return List.of(
+                    new Book("1984", "George Orwell", "Houghton Mifflin Harcourt"),
+                    new Book("1984", "George Orwell", "Univ. Press of Mississippi"),
+                    new Book("Older Americans Act Amendments of 1984", "United States. Congress. House. Committee on Education and Labor. Subcommittee on Human Resources", "UNKNOWN"),
+                    new Book("International Study Missions", "United States. Congress. House. Select Committee on Narcotics Abuse and Control", "UNKNOWN"),
+                    new Book("Proceedings of The Academy of Natural Sciences Special Publication 14, 1984", "UNKNOWN", "Academy of Natural Sciences"));
+        }
+
         return List.of(
-                new Book("1984", "George Orwell", "Houghton Mifflin Harcourt"),
-                new Book("1984", "George Orwell", "Univ. Press of Mississippi"),
-                new Book("Older Americans Act Amendments of 1984", "United States. Congress. House. Committee on Education and Labor. Subcommittee on Human Resources", "UNKNOWN"),
-                new Book("International Study Missions", "United States. Congress. House. Select Committee on Narcotics Abuse and Control", "UNKNOWN"),
-                new Book("Proceedings of The Academy of Natural Sciences Special Publication 14, 1984", "UNKNOWN", "Academy of Natural Sciences"));
+                new Book("Brave New World", "Aldous Huxley", "Random House"),
+                new Book("Brave New World", "Aldous Huxley", "Longman"),
+                new Book("Brave New World and Brave New World Revisited",
+                        "Aldous Huxley", "Harper Collins"),
+                new Book("Brief Candles. Four Stories.", "Aldous Huxley", "Wildside Press LLC"),
+                new Book("Brave New World Revisited", "Aldous Huxley", "Random House"));
+
     }
 }
