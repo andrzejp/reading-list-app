@@ -12,6 +12,9 @@ public class GoogleBooksCatalogue implements Catalogue {
 
     @Override
     public List<Book> find(String query) {
-        return List.of();
+        if (query.isBlank()) {
+            return List.of();
+        }
+        return List.of(new Book(), new Book(), new Book(), new Book(), new Book());
     }
 }
