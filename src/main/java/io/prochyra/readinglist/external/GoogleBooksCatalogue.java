@@ -19,6 +19,9 @@ import static java.net.http.HttpResponse.BodyHandlers.ofString;
 public class GoogleBooksCatalogue implements Catalogue {
 
     private final String hostName;
+    private final HttpClient client = HttpClient.newBuilder()
+            .followRedirects(NORMAL)
+            .build();
 
     public GoogleBooksCatalogue(String hostName) {
         this.hostName = hostName;
@@ -29,10 +32,6 @@ public class GoogleBooksCatalogue implements Catalogue {
         if (query.isBlank()) {
             return List.of();
         }
-
-        HttpClient client = HttpClient.newBuilder()
-                .followRedirects(NORMAL)
-                .build();
 
         HttpRequest request = newBuilder(
                 create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&q=1984"))
