@@ -12,6 +12,6 @@ public class GoogleBooksCatalogue implements Catalogue {
 
     @Override
     public List<Book> find(String query) {
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return List.of();
     }
 }
