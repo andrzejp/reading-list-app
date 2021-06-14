@@ -4,8 +4,6 @@ import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
 import io.prochyra.readinglist.domain.CatalogueException;
 import jakarta.json.JsonObject;
-import jakarta.json.bind.Jsonb;
-import jakarta.json.bind.JsonbBuilder;
 import jakarta.json.bind.JsonbConfig;
 import jakarta.json.bind.adapter.JsonbAdapter;
 
@@ -16,6 +14,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.json.bind.JsonbBuilder.create;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static java.net.URI.create;
 import static java.net.URLEncoder.encode;
@@ -27,28 +26,28 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public class GoogleBooksCatalogue implements Catalogue {
 
     private final String hostName;
-    private final JsonbAdapter<ArrayList<Book>, JsonObject> bookAdapter;
     private final HttpClient client = HttpClient.newBuilder()
             .followRedirects(NORMAL)
             .build();
+    private final JsonbConfig jsonbConfig;
 
     public GoogleBooksCatalogue(String hostName, JsonbAdapter<ArrayList<Book>, JsonObject> bookAdapter) {
         this.hostName = hostName;
-        this.bookAdapter = bookAdapter;
+        jsonbConfig = new JsonbConfig().withAdapters(bookAdapter);
     }
 
     @Override
     public List<Book> find(String query) throws CatalogueException {
-        if (query.isBlank()) {
+        if (query.isBlank())
             return List.of();
-        }
 
-        HttpRequest request = newBuilder(
-                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q="
-                       + encode(query, UTF_8)))
-                .GET()
-                .build();
+        HttpResponse<String> response = getResponse(query);
+        checkStatusCode(response);
+        return mapBooksFromJson(response.body());
+    }
 
+    private HttpResponse<String> getResponse(String query) throws CatalogueException {
+        HttpRequest request = buildRequest(query);
         HttpResponse<String> response;
 
         try {
@@ -59,15 +58,30 @@ public class GoogleBooksCatalogue implements Catalogue {
             Thread.currentThread().interrupt();
             throw new CatalogueException("There was a problem accessing the Google Books API", e);
         }
+        return response;
+    }
 
+    private HttpRequest buildRequest(String query) {
+        return newBuilder(
+                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q="
+                       + encode(query, UTF_8)))
+                .GET()
+                .build();
+    }
+
+    private void checkStatusCode(HttpResponse<String> response) throws CatalogueException {
         if (response.statusCode() != HTTP_OK) {
             throw new CatalogueException("There was a problem accessing the Google Books API. Status code was "
                                          + response.statusCode());
         }
+    }
 
-        JsonbConfig config = new JsonbConfig().withAdapters(bookAdapter);
-        Jsonb jsonb = JsonbBuilder.create(config);
-
-        return jsonb.fromJson(response.body(), new ArrayList<Book>(){}.getClass().getGenericSuperclass());
+    private List<Book> mapBooksFromJson(String json) throws CatalogueException {
+        try (var jsonb = create(jsonbConfig)) {
+            return jsonb.fromJson(json, new ArrayList<Book>() {
+            }.getClass().getGenericSuperclass());
+        } catch (Exception e) {
+            throw new CatalogueException("There was a problem deserializing the response from the Google Books API", e);
+        }
     }
 }
