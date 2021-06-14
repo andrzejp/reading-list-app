@@ -15,6 +15,20 @@ public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObje
 
     @Override
     public ArrayList<Book> adaptFromJson(JsonObject jsonObject) {
-        return new ArrayList<>();
+        ArrayList<Book> books = new ArrayList<>();
+
+        if (jsonObject.isEmpty())
+            return books;
+
+        var items = jsonObject.getJsonArray("items");
+
+        var firstItem = items.getJsonObject(0);
+        var volumeInfo = firstItem.getJsonObject("volumeInfo");
+        var title = volumeInfo.getString("title");
+        var book = new Book(title, "UNKNOWN", "UNKNOWN");
+
+        books.add(book);
+
+        return books;
     }
 }
