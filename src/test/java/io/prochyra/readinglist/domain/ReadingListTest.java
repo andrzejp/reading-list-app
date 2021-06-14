@@ -1,5 +1,6 @@
 package io.prochyra.readinglist.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -19,22 +20,25 @@ import static org.mockito.BDDMockito.then;
 class ReadingListTest {
 
     @Mock
-    private ReadingListPrinter printer;
+    private ReadingListViewer viewer;
     @Mock
     private BookRepository repository;
+    private ReadingList readingList;
+
+    @BeforeEach
+    void setUp() {
+        readingList = new ReadingList(viewer, repository);
+    }
 
     @Test
     void should_start_out_empty() {
-        ReadingList readingList = new ReadingList(printer, repository);
-
         readingList.view();
 
-        then(printer).should().print(emptyList());
+        then(viewer).should().show(emptyList());
     }
 
     @Test
     void should_allow_adding_books() {
-        var readingList = new ReadingList(printer, repository);
         var book = new Book("Title", emptyList(), "Publisher");
 
         readingList.save(book);
@@ -44,7 +48,6 @@ class ReadingListTest {
 
     @Test
     void should_show_current_reading_list() {
-        var readingList = new ReadingList(printer, repository);
         List<Book> books = of(
                 new Book("Title", of("Author"), "Publisher"),
                 new Book("Title2", of("Author2"), "Publisher2"),
@@ -55,6 +58,6 @@ class ReadingListTest {
 
         readingList.view();
 
-        then(printer).should().print(books);
+        then(viewer).should().show(books);
     }
 }

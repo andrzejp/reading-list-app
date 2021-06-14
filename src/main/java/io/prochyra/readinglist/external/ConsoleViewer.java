@@ -2,20 +2,20 @@ package io.prochyra.readinglist.external;
 
 import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Console;
-import io.prochyra.readinglist.domain.ReadingListPrinter;
+import io.prochyra.readinglist.domain.ReadingListViewer;
 
 import java.util.List;
 
-public class ConsolePrinter implements ReadingListPrinter {
+public class ConsoleViewer implements ReadingListViewer {
 
     private final Console console;
 
-    public ConsolePrinter(Console console) {
+    public ConsoleViewer(Console console) {
         this.console = console;
     }
 
     @Override
-    public void print(List<Book> books) {
+    public void show(List<Book> books) {
         console.print("READING LIST");
         console.print("------------");
         console.newLine();

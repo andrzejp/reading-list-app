@@ -2,11 +2,11 @@ package io.prochyra.readinglist.domain;
 
 public class ReadingList {
 
-    private final ReadingListPrinter printer;
+    private final ReadingListViewer viewer;
     private final BookRepository repository;
 
-    public ReadingList(ReadingListPrinter printer, BookRepository repository) {
-        this.printer = printer;
+    public ReadingList(ReadingListViewer viewer, BookRepository repository) {
+        this.viewer = viewer;
         this.repository = repository;
     }
 
@@ -15,6 +15,6 @@ public class ReadingList {
     }
 
     public void view() {
-        printer.print(repository.getAll());
+        viewer.show(repository.getAll());
     }
 }

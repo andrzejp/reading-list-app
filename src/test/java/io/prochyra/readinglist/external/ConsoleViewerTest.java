@@ -2,6 +2,7 @@ package io.prochyra.readinglist.external;
 
 import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Console;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -15,16 +16,22 @@ import static org.mockito.BDDMockito.then;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
-class ConsolePrinterTest {
+class ConsoleViewerTest {
 
     @Mock
     private Console console;
+    private ConsoleViewer viewer;
+
+    @BeforeEach
+    void setUp() {
+        viewer = new ConsoleViewer(console);
+    }
 
     @Test
-    void should_print_a_heading() {
-        var printer = new ConsolePrinter(console);
+    void should_show_a_heading() {
+        var viewer = new ConsoleViewer(console);
 
-        printer.print(emptyList());
+        viewer.show(emptyList());
 
         then(console).should().print("READING LIST");
         then(console).should().print("------------");
@@ -32,25 +39,21 @@ class ConsolePrinterTest {
     }
 
     @Test
-    void should_print_a_message_when_the_list_is_empty() {
-        var printer = new ConsolePrinter(console);
-
-        printer.print(emptyList());
+    void should_show_a_message_when_the_list_is_empty() {
+        viewer.show(emptyList());
 
         then(console).should().print("You have no books in your reading list!");
     }
 
     @Test
-    void should_print_a_list_of_books() {
-        var printer = new ConsolePrinter(console);
-
+    void should_show_a_list_of_books() {
         var books = of(
                 new Book("First Book", of("First Author One", "First Author Two"), "First Publisher"),
                 new Book("Second Book", of("Second Author"), "Second Publisher"),
                 new Book("Third Book", of("Third Author"), "Third Publisher")
         );
 
-        printer.print(books);
+        viewer.show(books);
 
         then(console).should().print("1. 'First Book' by First Author One, First Author Two - First Publisher");
         then(console).should().print("2. 'Second Book' by Second Author - Second Publisher");
