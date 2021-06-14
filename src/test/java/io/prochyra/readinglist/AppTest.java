@@ -72,6 +72,8 @@ class AppTest {
 
         app.start();
 
+        then(console).should(inOrder).print("Enter query: ");
+
         then(console).should(inOrder).printLn("SEARCH RESULTS");
         then(console).should(inOrder).printLn("--------------");
         then(console).should(inOrder).newLine();

@@ -42,9 +42,10 @@ public class App {
             readingList.view();
         } else {
             console.newLine();
+            console.print("Enter query: ");
             var query = console.getLine();
             var queryResults = catalogue.find(query);
-
+            console.newLine();
             viewer.show(queryResults);
         }
     }
