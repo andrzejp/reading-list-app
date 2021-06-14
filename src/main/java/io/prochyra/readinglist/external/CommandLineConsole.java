@@ -22,4 +22,9 @@ public class CommandLineConsole implements Console {
     public String getLine() {
         return scanner.nextLine();
     }
+
+    @Override
+    public int getInt() {
+        return scanner.nextInt();
+    }
 }

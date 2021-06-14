@@ -7,4 +7,6 @@ public interface Console {
     void newLine();
 
     String getLine();
+
+    int getInt();
 }

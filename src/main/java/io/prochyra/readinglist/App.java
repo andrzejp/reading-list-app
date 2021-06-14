@@ -30,6 +30,17 @@ public class App {
     }
 
     public void start() throws CatalogueException {
+        printMainMenu();
+
+        int choice = console.getInt();
+
+        var query = console.getLine();
+        var queryResults = catalogue.find(query);
+
+        viewer.show(queryResults);
+    }
+
+    private void printMainMenu() {
         console.print("📚 READING LIST APP™️ 📚");
         console.print("-------------------------");
         console.newLine();
@@ -38,10 +49,5 @@ public class App {
         console.print("3 - 🛑 Quit");
         console.newLine();
         console.print("Enter selection (1-3): ");
-
-        var query = console.getLine();
-        var queryResults = catalogue.find(query);
-
-        viewer.show(queryResults);
     }
 }

@@ -36,8 +36,25 @@ class AppTest {
     }
 
     @Test
+    void should_display_a_main_menu() throws CatalogueException {
+        InOrder inOrder = inOrder(console);
+
+        app.start();
+
+        then(console).should(inOrder).print("📚 READING LIST APP™️ 📚");
+        then(console).should(inOrder).print("-------------------------");
+        then(console).should(inOrder).newLine();
+        then(console).should(inOrder).print("1 - 📖 View Reading List");
+        then(console).should(inOrder).print("2 - 🔎 Search for books to add");
+        then(console).should(inOrder).print("3 - 🛑 Quit");
+        then(console).should(inOrder).newLine();
+        then(console).should(inOrder).print("Enter selection (1-3): ");
+    }
+
+    @Test
     void should_accept_a_query_and_display_the_result() throws CatalogueException {
         InOrder inOrder = inOrder(console);
+        given(console.getInt()).willReturn(2);
         given(console.getLine()).willReturn("Book");
         given(catalogue.find("Book"))
                 .willReturn(of(
@@ -53,21 +70,5 @@ class AppTest {
         then(console).should(inOrder).print("1. 'First Book' by First Author One, First Author Two - First Publisher");
         then(console).should(inOrder).print("2. 'Second Book' by Second Author - Second Publisher");
         then(console).should(inOrder).print("3. 'Third Book' by Third Author - Third Publisher");
-    }
-
-    @Test
-    void should_display_a_main_menu() throws CatalogueException {
-        InOrder inOrder = inOrder(console);
-
-        app.start();
-
-        then(console).should(inOrder).print("📚 READING LIST APP™️ 📚");
-        then(console).should(inOrder).print("-------------------------");
-        then(console).should(inOrder).newLine();
-        then(console).should(inOrder).print("1 - 📖 View Reading List");
-        then(console).should(inOrder).print("2 - 🔎 Search for books to add");
-        then(console).should(inOrder).print("3 - 🛑 Quit");
-        then(console).should(inOrder).newLine();
-        then(console).should(inOrder).print("Enter selection (1-3): ");
     }
 }
