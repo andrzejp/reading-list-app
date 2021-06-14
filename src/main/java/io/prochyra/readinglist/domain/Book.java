@@ -1,16 +1,17 @@
 package io.prochyra.readinglist.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Book {
 
     private final String title;
-    private final String author;
+    private final List<String> authors;
     private final String publisher;
 
-    public Book(String title, String author, String publisher) {
+    public Book(String title, List<String> authors, String publisher) {
         this.title = title;
-        this.author = author;
+        this.authors = authors;
         this.publisher = publisher;
     }
 
@@ -18,7 +19,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                "title='" + title + '\'' +
-               ", author='" + author + '\'' +
+               ", author='" + authors + '\'' +
                ", publisher='" + publisher + '\'' +
                '}';
     }
@@ -28,11 +29,11 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         var book = (Book) o;
-        return title.equals(book.title) && author.equals(book.author) && publisher.equals(book.publisher);
+        return title.equals(book.title) && authors.equals(book.authors) && publisher.equals(book.publisher);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, publisher);
+        return Objects.hash(title, authors, publisher);
     }
 }

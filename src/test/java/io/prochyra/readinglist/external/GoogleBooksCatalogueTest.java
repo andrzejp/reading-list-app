@@ -21,6 +21,7 @@ import java.util.Map;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static java.net.URLEncoder.encode;
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.List.of;
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.assertj.core.api.BDDAssertions.thenExceptionOfType;
 import static org.mockito.ArgumentMatchers.any;
@@ -31,18 +32,18 @@ import static org.mockito.BDDMockito.given;
 class GoogleBooksCatalogueTest extends WireMockTest {
 
     Map<String, List<Book>> expectedBooks = Map.of(
-            "1984", List.of(
-                    new Book("1984", "George Orwell", "Houghton Mifflin Harcourt"),
-                    new Book("The Year Book Of World Affairs 1984", "George W Keeton", "Routledge"),
-                    new Book("1984", "George Orwell", "General Press"),
-                    new Book("Agricultural Sample Survey, 1991/92 (1984 E.C.)", "UNKNOWN", "UNKNOWN"),
-                    new Book("Nineteen Eighty-four", "George Orwell", "Large Print Press")),
-            "brave new world", List.of(
-                    new Book("Brave New World", "Aldous Huxley", "Random House"),
-                    new Book("Brave New World", "Aldous Huxley", "Longman"),
-                    new Book("Brave New World and Brave New World Revisited", "Aldous Huxley", "Harper Collins"),
-                    new Book("Brief Candles. Four Stories.", "Aldous Huxley", "Wildside Press LLC"),
-                    new Book("Brave New World Revisited", "Aldous Huxley", "Random House"))
+            "1984", of(
+                    new Book("1984", of("George Orwell"), "Houghton Mifflin Harcourt"),
+                    new Book("The Year Book Of World Affairs 1984", of("George W Keeton"), "Routledge"),
+                    new Book("1984", of("George Orwell"), "General Press"),
+                    new Book("Agricultural Sample Survey, 1991/92 (1984 E.C.)", of("UNKNOWN"), "UNKNOWN"),
+                    new Book("Nineteen Eighty-four", of("George Orwell"), "Large Print Press")),
+            "brave new world", of(
+                    new Book("Brave New World", of("Aldous Huxley"), "Random House"),
+                    new Book("Brave New World", of("Aldous Huxley"), "Longman"),
+                    new Book("Brave New World and Brave New World Revisited", of("Aldous Huxley"), "Harper Collins"),
+                    new Book("Brief Candles. Four Stories.", of("Aldous Huxley"), "Wildside Press LLC"),
+                    new Book("Brave New World Revisited", of("Aldous Huxley"), "Random House"))
     );
     @Mock
     GoogleBookAdapter bookAdapter;

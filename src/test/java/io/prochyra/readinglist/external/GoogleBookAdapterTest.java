@@ -44,7 +44,36 @@ class GoogleBookAdapterTest {
 
         JsonObject json = jsonb.fromJson(onlyTitle, JsonObject.class);
 
-        ArrayList<Book> expectedBooks = new ArrayList<>(of(new Book("Title", "UNKNOWN", "UNKNOWN")));
+        ArrayList<Book> expectedBooks = new ArrayList<>(of(new Book("Title", of(), "UNKNOWN")));
+
+        then(adapter.adaptFromJson(json)).isEqualTo(expectedBooks);
+    }
+
+    @Test
+    void should_adapt_a_book_with_multiple_authors() {
+        GoogleBookAdapter adapter = new GoogleBookAdapter();
+        Jsonb jsonb = JsonbBuilder.create();
+        String multipleAuthors = """
+                {
+                  "items": [
+                    {
+                      "volumeInfo": {
+                        "title": "Title",
+                        "authors": [
+                          "Author One",
+                          "Author Two"
+                        ],
+                        "publisher": "A Publisher"
+                      }
+                    }
+                  ]
+                }""";
+
+
+        JsonObject json = jsonb.fromJson(multipleAuthors, JsonObject.class);
+
+        ArrayList<Book> expectedBooks = new ArrayList<>(
+                of(new Book("Title", of("Author One", "Author Two"), "A Publisher")));
 
         then(adapter.adaptFromJson(json)).isEqualTo(expectedBooks);
     }
