@@ -3,6 +3,9 @@ package io.prochyra.readinglist.domain;
 import java.util.List;
 import java.util.Objects;
 
+import static java.lang.String.format;
+import static java.lang.String.join;
+
 public class Book {
 
     private final String title;
@@ -17,11 +20,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-               "title='" + title + '\'' +
-               ", author='" + authors + '\'' +
-               ", publisher='" + publisher + '\'' +
-               '}';
+        return format("'%s' by %s - %s", title, join(", ", authors), publisher);
     }
 
     @Override

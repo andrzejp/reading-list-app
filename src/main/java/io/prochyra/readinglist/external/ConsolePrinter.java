@@ -20,7 +20,12 @@ public class ConsolePrinter implements ReadingListPrinter {
         console.print("------------");
         console.newLine();
 
-        if (books.isEmpty())
+        if (books.isEmpty()) {
             console.print("You have no books in your reading list!");
+        } else {
+            for (int i = 0; i < books.size(); i++) {
+                console.print((i + 1) + ". " + books.get(i));
+            }
+        }
     }
 }
