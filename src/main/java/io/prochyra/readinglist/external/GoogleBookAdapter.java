@@ -15,7 +15,7 @@ public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObje
 
     @Override
     public JsonObject adaptToJson(ArrayList<Book> books) {
-        throw new UnsupportedOperationException("Not implemented yet!");
+        throw new UnsupportedOperationException("Not implemented.");
     }
 
     @Override

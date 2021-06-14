@@ -14,6 +14,7 @@ import java.util.Arrays;
 
 import static java.util.Collections.emptyList;
 import static java.util.List.of;
+import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -137,5 +138,15 @@ class GoogleBookAdapterTest {
         var books = adapter.adaptFromJson(json);
 
         then(books).isEqualTo(expectedBooks);
+    }
+
+    @Test
+    void should_throw_exception_on_adaptToJson() {
+        var books = getList(new Book("", of(), ""));
+
+        Throwable thrown = catchThrowable(() -> adapter.adaptToJson(books));
+
+        then(thrown).isInstanceOf(UnsupportedOperationException.class)
+                .hasMessage("Not implemented.");
     }
 }
