@@ -1,9 +1,6 @@
 package io.prochyra.readinglist;
 
-import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.Catalogue;
-import io.prochyra.readinglist.domain.CatalogueException;
-import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.domain.*;
 import io.prochyra.readinglist.external.SearchResultViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -27,12 +24,14 @@ class AppTest {
     Console console;
     @Mock
     private Catalogue catalogue;
+    @Mock
+    private ReadingList readingList;
     private App app;
 
     @BeforeEach
     void setUp() {
         SearchResultViewer viewer = new SearchResultViewer(console);
-        app = new App(console, catalogue, viewer);
+        app = new App(console, catalogue, viewer, readingList);
     }
 
     @Test
@@ -49,6 +48,15 @@ class AppTest {
         then(console).should(inOrder).print("3 - 🛑 Quit");
         then(console).should(inOrder).newLine();
         then(console).should(inOrder).print("Enter selection (1-3): ");
+    }
+
+    @Test
+    void should_display_reading_list() throws CatalogueException {
+        given(console.getInt()).willReturn(1);
+
+        app.start();
+
+        then(readingList).should().view();
     }
 
     @Test

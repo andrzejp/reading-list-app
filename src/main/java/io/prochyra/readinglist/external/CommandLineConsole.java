@@ -25,6 +25,8 @@ public class CommandLineConsole implements Console {
 
     @Override
     public int getInt() {
-        return scanner.nextInt();
+        var i = scanner.nextInt();
+        scanner.nextLine();
+        return i;
     }
 }
