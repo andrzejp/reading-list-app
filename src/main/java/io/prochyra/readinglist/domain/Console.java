@@ -5,4 +5,6 @@ public interface Console {
     void print(String s);
 
     void newLine();
+
+    String getLine();
 }
