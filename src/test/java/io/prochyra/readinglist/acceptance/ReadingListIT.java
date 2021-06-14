@@ -5,6 +5,7 @@ import io.prochyra.readinglist.domain.*;
 import io.prochyra.readinglist.external.ConsoleViewer;
 import io.prochyra.readinglist.external.GoogleBookAdapter;
 import io.prochyra.readinglist.external.GoogleBooksCatalogue;
+import io.prochyra.readinglist.external.InMemoryBookRepository;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -25,8 +26,6 @@ class ReadingListIT extends WireMockTest {
 
     @Mock
     private Console console;
-    @Mock
-    private BookRepository repository;
 
     @Test
     @SuppressWarnings("static-access")
@@ -41,8 +40,8 @@ class ReadingListIT extends WireMockTest {
 
     @Test
     void should_save_books_to_reading_list_and_display_it() {
-        ReadingListViewer printer = new ConsoleViewer(console);
-        ReadingList readingList = new ReadingList(printer, repository);
+        ReadingListViewer viewer = new ConsoleViewer(console);
+        ReadingList readingList = new ReadingList(viewer, new InMemoryBookRepository());
 
         Book book1 = new Book("Title", of("Author"), "Publisher");
         Book book2 = new Book("Title2", of("Author2"), "Publisher2");
@@ -54,8 +53,8 @@ class ReadingListIT extends WireMockTest {
 
         readingList.view();
 
-        then(console).should().print("1. Title, Author, Publisher");
-        then(console).should().print("2. Title, Author, Publisher");
-        then(console).should().print("3. Title, Author, Publisher");
+        then(console).should().print("1. 'Title' by Author - Publisher");
+        then(console).should().print("2. 'Title2' by Author2 - Publisher2");
+        then(console).should().print("3. 'Title3' by Author3 - Publisher3");
     }
 }
