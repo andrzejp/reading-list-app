@@ -6,7 +6,10 @@ import jakarta.json.JsonString;
 import jakarta.json.bind.adapter.JsonbAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toCollection;
 
 public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObject> {
 
@@ -17,25 +20,28 @@ public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObje
 
     @Override
     public ArrayList<Book> adaptFromJson(JsonObject jsonObject) {
-        ArrayList<Book> books = new ArrayList<>();
-
         if (jsonObject.isEmpty())
-            return books;
+            return new ArrayList<>();
 
-        var items = jsonObject.getJsonArray("items").getValuesAs(JsonObject.class);
+        return getItems(jsonObject)
+                .stream()
+                .map(this::getBook)
+                .collect(toCollection(ArrayList::new));
+    }
 
-        for (var item : items) {
-            var volumeInfo = item.getJsonObject("volumeInfo");
-            var title = volumeInfo.getString("title");
-            var publisher = volumeInfo.getString("publisher", "UNKNOWN");
-            var authors = new ArrayList<String>();
-            if (volumeInfo.containsKey("authors")) {
-                authors.addAll(volumeInfo.getJsonArray("authors").getValuesAs(JsonString.class).stream().map(JsonString::getString).collect(Collectors.toList()));
-            }
-            var book = new Book(title, authors, publisher);
-            books.add(book);
-        }
+    private List<JsonObject> getItems(JsonObject jsonObject) {
+        return jsonObject.getJsonArray("items")
+                .getValuesAs(JsonObject.class);
+    }
 
-        return books;
+    private Book getBook(JsonObject item) {
+        var volumeInfo = item.getJsonObject("volumeInfo");
+        var title = volumeInfo.getString("title");
+        var publisher = volumeInfo.getString("publisher", "UNKNOWN");
+        var authors = new ArrayList<String>();
+        if (volumeInfo.containsKey("authors"))
+            authors.addAll(volumeInfo.getJsonArray("authors").getValuesAs(JsonString.class).stream().map(JsonString::getString).collect(Collectors.toList()));
+
+        return new Book(title, authors, publisher);
     }
 }
