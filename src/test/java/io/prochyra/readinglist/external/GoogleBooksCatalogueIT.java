@@ -1,10 +1,13 @@
 package io.prochyra.readinglist.external;
 
 import io.prochyra.readinglist.domain.CatalogueException;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.BDDAssertions.then;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class GoogleBooksCatalogueIT {
 
     @Test

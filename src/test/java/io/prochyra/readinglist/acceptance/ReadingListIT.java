@@ -26,6 +26,8 @@ class ReadingListIT extends WireMockTest {
 
     @Mock
     private Console console;
+    @Mock
+    private BookRepository repository;
 
     @Test
     @SuppressWarnings("static-access")
@@ -42,7 +44,7 @@ class ReadingListIT extends WireMockTest {
     @Disabled
     void should_save_books_to_reading_list_and_display_it() {
         ReadingListPrinter printer = new ConsolePrinter(console);
-        ReadingList readingList = new ReadingList(printer);
+        ReadingList readingList = new ReadingList(printer, repository);
 
         Book book1 = new Book("Title", of("Author"), "Publisher");
         Book book2 = new Book("Title2", of("Author2"), "Publisher2");
