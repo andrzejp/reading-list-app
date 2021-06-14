@@ -68,7 +68,7 @@ class GoogleBookAdapterTest {
 
     @Test
     void should_adapt_a_book_with_multiple_authors() {
-        JsonObject json = getJsonObjectFrom("""
+        var json = getJsonObjectFrom("""
                 {
                   "items": [
                     {
@@ -86,7 +86,55 @@ class GoogleBookAdapterTest {
         var expectedBooks = getList(
                 new Book("Title", of("Author One", "Author Two"), "A Publisher"));
 
-        ArrayList<Book> books = adapter.adaptFromJson(json);
+        var books = adapter.adaptFromJson(json);
+
+        then(books).isEqualTo(expectedBooks);
+    }
+
+    @Test
+    void should_adapt_several_books() {
+        var json = getJsonObjectFrom("""
+                {
+                  "items": [
+                    {
+                      "volumeInfo": {
+                        "title": "Title One",
+                        "authors": [
+                          "Author One",
+                          "Author Two"
+                        ],
+                        "publisher": "Publisher One"
+                      }
+                    },
+                    {
+                      "volumeInfo": {
+                        "title": "Title Two",
+                        "authors": [
+                          "Author One",
+                          "Author Two"
+                        ],
+                        "publisher": "Publisher Two"
+                      }
+                    },
+                    {
+                      "volumeInfo": {
+                        "title": "Title Three",
+                        "authors": [
+                          "Author One",
+                          "Author Two"
+                        ],
+                        "publisher": "Publisher Three"
+                      }
+                    }
+                  ]
+                }
+                """);
+        var expectedBooks = getList(
+                new Book("Title One", of("Author One", "Author Two"), "Publisher One"),
+                new Book("Title Two", of("Author One", "Author Two"), "Publisher Two"),
+                new Book("Title Three", of("Author One", "Author Two"), "Publisher Three"));
+
+        var books = adapter.adaptFromJson(json);
 
         then(books).isEqualTo(expectedBooks);
     }
