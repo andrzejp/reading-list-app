@@ -8,11 +8,19 @@ import java.util.List;
 
 public class ConsolePrinter implements ReadingListPrinter {
 
+    private final Console console;
+
     public ConsolePrinter(Console console) {
+        this.console = console;
     }
 
     @Override
     public void print(List<Book> books) {
-        throw new UnsupportedOperationException("Not implemented yet!");
+        console.print("READING LIST");
+        console.print("------------");
+        console.newLine();
+
+        if (books.isEmpty())
+            console.print("You have no books in your reading list!");
     }
 }

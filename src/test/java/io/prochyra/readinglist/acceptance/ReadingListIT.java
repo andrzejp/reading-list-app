@@ -41,7 +41,6 @@ class ReadingListIT extends WireMockTest {
     }
 
     @Test
-    @Disabled
     void should_save_books_to_reading_list_and_display_it() {
         ReadingListPrinter printer = new ConsolePrinter(console);
         ReadingList readingList = new ReadingList(printer, repository);
