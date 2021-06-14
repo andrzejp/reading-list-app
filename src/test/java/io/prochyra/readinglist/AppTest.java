@@ -5,16 +5,19 @@ import io.prochyra.readinglist.domain.Catalogue;
 import io.prochyra.readinglist.domain.CatalogueException;
 import io.prochyra.readinglist.domain.Console;
 import io.prochyra.readinglist.external.SearchResultViewer;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static java.util.List.of;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.inOrder;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -24,12 +27,17 @@ class AppTest {
     Console console;
     @Mock
     private Catalogue catalogue;
+    private App app;
+
+    @BeforeEach
+    void setUp() {
+        SearchResultViewer viewer = new SearchResultViewer(console);
+        app = new App(console, catalogue, viewer);
+    }
 
     @Test
     void should_accept_a_query_and_display_the_result() throws CatalogueException {
-        SearchResultViewer viewer = new SearchResultViewer(console);
-        App app = new App(console, catalogue, viewer);
-
+        InOrder inOrder = inOrder(console);
         given(console.getLine()).willReturn("Book");
         given(catalogue.find("Book"))
                 .willReturn(of(
@@ -39,11 +47,27 @@ class AppTest {
 
         app.start();
 
-        then(console).should().print("SEARCH RESULTS");
-        then(console).should().print("--------------");
-        then(console).should().newLine();
-        then(console).should().print("1. 'First Book' by First Author One, First Author Two - First Publisher");
-        then(console).should().print("2. 'Second Book' by Second Author - Second Publisher");
-        then(console).should().print("3. 'Third Book' by Third Author - Third Publisher");
+        then(console).should(inOrder).print("SEARCH RESULTS");
+        then(console).should(inOrder).print("--------------");
+        then(console).should(inOrder).newLine();
+        then(console).should(inOrder).print("1. 'First Book' by First Author One, First Author Two - First Publisher");
+        then(console).should(inOrder).print("2. 'Second Book' by Second Author - Second Publisher");
+        then(console).should(inOrder).print("3. 'Third Book' by Third Author - Third Publisher");
+    }
+
+    @Test
+    void should_display_a_main_menu() throws CatalogueException {
+        InOrder inOrder = inOrder(console);
+
+        app.start();
+
+        then(console).should(inOrder).print("📚 READING LIST APP™️ 📚");
+        then(console).should(inOrder).print("-------------------------");
+        then(console).should(inOrder).newLine();
+        then(console).should(inOrder).print("1 - 📖 View Reading List");
+        then(console).should(inOrder).print("2 - 🔎 Search for books to add");
+        then(console).should(inOrder).print("3 - 🛑 Quit");
+        then(console).should(inOrder).newLine();
+        then(console).should(inOrder).print("Enter selection (1-3): ");
     }
 }

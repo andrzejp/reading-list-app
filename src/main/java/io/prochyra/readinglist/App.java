@@ -30,6 +30,15 @@ public class App {
     }
 
     public void start() throws CatalogueException {
+        console.print("📚 READING LIST APP™️ 📚");
+        console.print("-------------------------");
+        console.newLine();
+        console.print("1 - 📖 View Reading List");
+        console.print("2 - 🔎 Search for books to add");
+        console.print("3 - 🛑 Quit");
+        console.newLine();
+        console.print("Enter selection (1-3): ");
+
         var query = console.getLine();
         var queryResults = catalogue.find(query);
 
