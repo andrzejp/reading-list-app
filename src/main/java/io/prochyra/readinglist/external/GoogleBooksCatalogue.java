@@ -26,6 +26,9 @@ public class GoogleBooksCatalogue implements Catalogue {
 
     private static final String PATH = "/books/v1/volumes";
     private static final String QUERY = "maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q=";
+    private static final String DEFAULT_SCHEME = "https";
+    private static final String DEFAULT_HOST = "www.googleapis.com";
+    private static final int DEFAULT_PORT = 443;
     private final String host;
     private final HttpClient client = HttpClient.newBuilder()
             .followRedirects(NORMAL)
@@ -39,6 +42,10 @@ public class GoogleBooksCatalogue implements Catalogue {
         jsonbConfig = new JsonbConfig().withAdapters(bookAdapter);
         this.scheme = scheme;
         this.port = port;
+    }
+
+    public GoogleBooksCatalogue(GoogleBookAdapter bookAdapter) {
+        this(DEFAULT_SCHEME, DEFAULT_HOST, DEFAULT_PORT, bookAdapter);
     }
 
     @Override

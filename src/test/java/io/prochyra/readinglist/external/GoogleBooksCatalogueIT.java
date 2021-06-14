@@ -9,7 +9,7 @@ class GoogleBooksCatalogueIT {
 
     @Test
     void should_find_five_books_for_a_common_search_query() throws CatalogueException {
-        var catalogue = new GoogleBooksCatalogue("https", "www.googleapis.com", 443, new GoogleBookAdapter());
+        var catalogue = new GoogleBooksCatalogue(new GoogleBookAdapter());
 
         var foundBooks = catalogue.find("1984");
 
