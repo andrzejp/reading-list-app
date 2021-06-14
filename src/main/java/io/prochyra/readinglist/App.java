@@ -4,6 +4,9 @@ import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
 import io.prochyra.readinglist.domain.CatalogueException;
 import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.external.CommandLineConsole;
+import io.prochyra.readinglist.external.GoogleBookAdapter;
+import io.prochyra.readinglist.external.GoogleBooksCatalogue;
 
 import java.util.List;
 
@@ -15,6 +18,14 @@ public class App {
     public App(Console console, Catalogue catalogue) {
         this.console = console;
         this.catalogue = catalogue;
+    }
+
+    public static void main(String[] args) throws CatalogueException {
+        var console = new CommandLineConsole();
+        var bookAdapter = new GoogleBookAdapter();
+        var catalogue = new GoogleBooksCatalogue(bookAdapter);
+        var app = new App(console, catalogue);
+        app.start();
     }
 
     public void start() throws CatalogueException {
