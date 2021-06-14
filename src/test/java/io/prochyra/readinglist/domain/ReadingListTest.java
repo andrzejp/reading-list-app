@@ -7,7 +7,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
+
 import static java.util.Collections.emptyList;
+import static java.util.List.of;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -36,5 +40,21 @@ class ReadingListTest {
         readingList.save(book);
 
         then(repository).should().save(book);
+    }
+
+    @Test
+    void should_show_current_reading_list() {
+        var readingList = new ReadingList(printer, repository);
+        List<Book> books = of(
+                new Book("Title", of("Author"), "Publisher"),
+                new Book("Title2", of("Author2"), "Publisher2"),
+                new Book("Title3", of("Author3"), "Publisher3")
+        );
+
+        given(repository.getAll()).willReturn(books);
+
+        readingList.view();
+
+        then(printer).should().print(books);
     }
 }

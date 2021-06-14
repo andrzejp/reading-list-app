@@ -1,7 +1,5 @@
 package io.prochyra.readinglist.domain;
 
-import static java.util.Collections.emptyList;
-
 public class ReadingList {
 
     private final ReadingListPrinter printer;
@@ -17,6 +15,6 @@ public class ReadingList {
     }
 
     public void view() {
-        printer.print(emptyList());
+        printer.print(repository.getAll());
     }
 }
