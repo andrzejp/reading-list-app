@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static jakarta.json.bind.JsonbBuilder.create;
+import static java.lang.String.format;
 import static java.net.HttpURLConnection.HTTP_OK;
 import static java.net.URI.create;
 import static java.net.URLEncoder.encode;
@@ -66,8 +67,8 @@ public class GoogleBooksCatalogue implements Catalogue {
     }
 
     private HttpRequest buildRequest(String searchTerms) {
-        return newBuilder(
-                create(scheme + "://" + host + ":" + port + PATH + "?" + QUERY + encode(searchTerms, UTF_8)))
+        var uriString = format("%s://%s:%s%s?%s%s", scheme, host, port, PATH, QUERY, encode(searchTerms, UTF_8));
+        return newBuilder(create(uriString))
                 .GET()
                 .build();
     }
