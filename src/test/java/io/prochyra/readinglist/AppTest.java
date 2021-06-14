@@ -4,6 +4,7 @@ import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
 import io.prochyra.readinglist.domain.CatalogueException;
 import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.external.SearchResultViewer;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,8 @@ class AppTest {
 
     @Test
     void should_accept_a_query_and_display_the_result() throws CatalogueException {
-        App app = new App(console, catalogue);
+        SearchResultViewer viewer = new SearchResultViewer(console);
+        App app = new App(console, catalogue, viewer);
 
         given(console.getLine()).willReturn("Book");
         given(catalogue.find("Book"))
@@ -37,6 +39,9 @@ class AppTest {
 
         app.start();
 
+        then(console).should().print("SEARCH RESULTS");
+        then(console).should().print("--------------");
+        then(console).should().newLine();
         then(console).should().print("1. 'First Book' by First Author One, First Author Two - First Publisher");
         then(console).should().print("2. 'Second Book' by Second Author - Second Publisher");
         then(console).should().print("3. 'Third Book' by Third Author - Third Publisher");

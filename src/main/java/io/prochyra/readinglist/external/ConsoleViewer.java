@@ -26,4 +26,8 @@ public abstract class ConsoleViewer implements BookListViewer {
             }
         }
     }
+
+    protected abstract void printEmptyListMessage();
+
+    abstract void printHeader();
 }
