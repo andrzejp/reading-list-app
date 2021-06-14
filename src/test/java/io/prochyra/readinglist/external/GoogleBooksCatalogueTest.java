@@ -51,7 +51,7 @@ class GoogleBooksCatalogueTest extends WireMockTest {
 
     @BeforeEach
     void setUp() {
-        catalogue = new GoogleBooksCatalogue("localhost:8080", bookAdapter);
+        catalogue = new GoogleBooksCatalogue("http", "localhost", 8080, bookAdapter);
     }
 
     @Test

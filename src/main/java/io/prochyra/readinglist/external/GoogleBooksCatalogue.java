@@ -3,9 +3,7 @@ package io.prochyra.readinglist.external;
 import io.prochyra.readinglist.domain.Book;
 import io.prochyra.readinglist.domain.Catalogue;
 import io.prochyra.readinglist.domain.CatalogueException;
-import jakarta.json.JsonObject;
 import jakarta.json.bind.JsonbConfig;
-import jakarta.json.bind.adapter.JsonbAdapter;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -25,15 +23,21 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class GoogleBooksCatalogue implements Catalogue {
 
-    private final String hostName;
+    private static final String PATH = "/books/v1/volumes";
+    private static final String QUERY = "maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q=";
+    private final String host;
     private final HttpClient client = HttpClient.newBuilder()
             .followRedirects(NORMAL)
             .build();
     private final JsonbConfig jsonbConfig;
+    private final String scheme;
+    private final int port;
 
-    public GoogleBooksCatalogue(String hostName, JsonbAdapter<ArrayList<Book>, JsonObject> bookAdapter) {
-        this.hostName = hostName;
+    public GoogleBooksCatalogue(String scheme, String host, int port, GoogleBookAdapter bookAdapter) {
+        this.host = host;
         jsonbConfig = new JsonbConfig().withAdapters(bookAdapter);
+        this.scheme = scheme;
+        this.port = port;
     }
 
     @Override
@@ -61,10 +65,9 @@ public class GoogleBooksCatalogue implements Catalogue {
         return response;
     }
 
-    private HttpRequest buildRequest(String query) {
+    private HttpRequest buildRequest(String searchTerms) {
         return newBuilder(
-                create("http://" + hostName + "/books/v1/volumes?maxResults=5&printType=books&fields=items/volumeInfo(title,authors,publisher)&q="
-                       + encode(query, UTF_8)))
+                create(scheme + "://" + host + ":" + port + PATH + "?" + QUERY + encode(searchTerms, UTF_8)))
                 .GET()
                 .build();
     }
