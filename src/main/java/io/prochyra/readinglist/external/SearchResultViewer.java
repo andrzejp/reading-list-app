@@ -10,13 +10,13 @@ public class SearchResultViewer extends ConsoleViewer {
 
     @Override
     protected void printEmptyListMessage() {
-        console.print("There were no results for that query.");
+        console.printLn("There were no results for that query.");
     }
 
     @Override
     void printHeader() {
-        console.print("SEARCH RESULTS");
-        console.print("--------------");
+        console.printLn("SEARCH RESULTS");
+        console.printLn("--------------");
         console.newLine();
     }
 }

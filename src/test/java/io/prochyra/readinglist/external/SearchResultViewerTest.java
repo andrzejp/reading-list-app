@@ -23,6 +23,6 @@ class SearchResultViewerTest {
 
         viewer.printEmptyListMessage();
 
-        then(console).should().print("There were no results for that query.");
+        then(console).should().printLn("There were no results for that query.");
     }
 }

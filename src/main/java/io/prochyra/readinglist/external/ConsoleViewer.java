@@ -22,7 +22,7 @@ public abstract class ConsoleViewer implements BookListViewer {
             printEmptyListMessage();
         } else {
             for (int i = 0; i < books.size(); i++) {
-                console.print((i + 1) + ". " + books.get(i));
+                console.printLn((i + 1) + ". " + books.get(i));
             }
         }
     }

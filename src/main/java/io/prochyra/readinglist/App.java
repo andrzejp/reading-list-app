@@ -35,7 +35,7 @@ public class App {
     public void start() throws CatalogueException {
         printMainMenu();
 
-        int choice = console.getInt();
+        var choice = console.getInt();
 
         if (choice == 1) {
             console.newLine();
@@ -50,12 +50,12 @@ public class App {
     }
 
     private void printMainMenu() {
-        console.print("📚 READING LIST APP™️ 📚");
-        console.print("-------------------------");
+        console.printLn("📚 READING LIST APP™️ 📚");
+        console.printLn("-------------------------");
         console.newLine();
-        console.print("1 - 📖 View Reading List");
-        console.print("2 - 🔎 Search for books to add");
-        console.print("3 - 🛑 Quit");
+        console.printLn("1 - 📖 View Reading List");
+        console.printLn("2 - 🔎 Search for books to add");
+        console.printLn("3 - 🛑 Quit");
         console.newLine();
         console.print("Enter selection (1-3): ");
     }

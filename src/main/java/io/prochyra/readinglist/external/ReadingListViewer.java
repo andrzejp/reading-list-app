@@ -13,13 +13,13 @@ public class ReadingListViewer extends ConsoleViewer {
 
     @Override
     protected void printHeader() {
-        console.print(TITLE);
-        console.print("------------");
+        console.printLn(TITLE);
+        console.printLn("------------");
         console.newLine();
     }
 
     @Override
     protected void printEmptyListMessage() {
-        console.print(EMPTY_LIST_MESSAGE);
+        console.printLn(EMPTY_LIST_MESSAGE);
     }
 }

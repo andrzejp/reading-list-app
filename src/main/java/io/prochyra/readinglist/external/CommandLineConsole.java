@@ -9,7 +9,7 @@ public class CommandLineConsole implements Console {
     private final Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void print(String s) {
+    public void printLn(String s) {
         System.out.println(s);
     }
 
@@ -28,5 +28,10 @@ public class CommandLineConsole implements Console {
         var i = scanner.nextInt();
         scanner.nextLine();
         return i;
+    }
+
+    @Override
+    public void print(String s) {
+        System.out.print(s);
     }
 }

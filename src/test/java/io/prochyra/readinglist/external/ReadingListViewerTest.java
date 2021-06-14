@@ -33,8 +33,8 @@ class ReadingListViewerTest {
 
         viewer.show(emptyList());
 
-        then(console).should().print("READING LIST");
-        then(console).should().print("------------");
+        then(console).should().printLn("READING LIST");
+        then(console).should().printLn("------------");
         then(console).should().newLine();
     }
 
@@ -42,7 +42,7 @@ class ReadingListViewerTest {
     void should_show_a_message_when_the_list_is_empty() {
         viewer.show(emptyList());
 
-        then(console).should().print("You have no books in your reading list!");
+        then(console).should().printLn("You have no books in your reading list!");
     }
 
     @Test
@@ -55,8 +55,8 @@ class ReadingListViewerTest {
 
         viewer.show(books);
 
-        then(console).should().print("1. 'First Book' by First Author One, First Author Two - First Publisher");
-        then(console).should().print("2. 'Second Book' by Second Author - Second Publisher");
-        then(console).should().print("3. 'Third Book' by Third Author - Third Publisher");
+        then(console).should().printLn("1. 'First Book' by First Author One, First Author Two - First Publisher");
+        then(console).should().printLn("2. 'Second Book' by Second Author - Second Publisher");
+        then(console).should().printLn("3. 'Third Book' by Third Author - Third Publisher");
     }
 }
