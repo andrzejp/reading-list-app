@@ -20,7 +20,7 @@ import static org.mockito.BDDMockito.then;
 class ReadingListTest {
 
     @Mock
-    private ReadingListViewer viewer;
+    private BookListViewer viewer;
     @Mock
     private BookRepository repository;
     private ReadingList readingList;

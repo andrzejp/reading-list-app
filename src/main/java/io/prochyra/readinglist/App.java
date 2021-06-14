@@ -7,6 +7,7 @@ import io.prochyra.readinglist.domain.Console;
 import io.prochyra.readinglist.external.CommandLineConsole;
 import io.prochyra.readinglist.external.GoogleBookAdapter;
 import io.prochyra.readinglist.external.GoogleBooksCatalogue;
+import io.prochyra.readinglist.external.ReadingListViewer;
 
 import java.util.List;
 

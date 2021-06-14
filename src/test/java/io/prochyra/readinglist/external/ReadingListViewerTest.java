@@ -16,20 +16,20 @@ import static org.mockito.BDDMockito.then;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
-class ConsoleViewerTest {
+class ReadingListViewerTest {
 
     @Mock
     private Console console;
-    private ConsoleViewer viewer;
+    private ReadingListViewer viewer;
 
     @BeforeEach
     void setUp() {
-        viewer = new ConsoleViewer(console);
+        viewer = new ReadingListViewer(console);
     }
 
     @Test
     void should_show_a_heading() {
-        var viewer = new ConsoleViewer(console);
+        var viewer = new ReadingListViewer(console);
 
         viewer.show(emptyList());
 

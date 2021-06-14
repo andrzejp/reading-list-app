@@ -2,10 +2,7 @@ package io.prochyra.readinglist.acceptance;
 
 import io.prochyra.readinglist.WireMockTest;
 import io.prochyra.readinglist.domain.*;
-import io.prochyra.readinglist.external.ConsoleViewer;
-import io.prochyra.readinglist.external.GoogleBookAdapter;
-import io.prochyra.readinglist.external.GoogleBooksCatalogue;
-import io.prochyra.readinglist.external.InMemoryBookRepository;
+import io.prochyra.readinglist.external.*;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -40,7 +37,7 @@ class ReadingListIT extends WireMockTest {
 
     @Test
     void should_save_books_to_reading_list_and_display_it() {
-        ReadingListViewer viewer = new ConsoleViewer(console);
+        BookListViewer viewer = new ReadingListViewer(console);
         ReadingList readingList = new ReadingList(viewer, new InMemoryBookRepository());
 
         Book book1 = new Book("Title", of("Author"), "Publisher");
