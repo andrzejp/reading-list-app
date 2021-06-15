@@ -35,7 +35,7 @@ class AppTest {
     }
 
     @Test
-    void should_display_a_main_menu() throws CatalogueException {
+    void should_display_a_main_menu() throws CatalogueException, ConsoleException {
         InOrder inOrder = inOrder(console);
 
         given(console.getInt()).willReturn(3);
@@ -53,7 +53,7 @@ class AppTest {
     }
 
     @Test
-    void should_display_reading_list() throws CatalogueException {
+    void should_display_reading_list() throws CatalogueException, ConsoleException {
         given(console.getInt()).willReturn(1, 3);
 
         app.start();
@@ -62,7 +62,7 @@ class AppTest {
     }
 
     @Test
-    void should_accept_a_query_and_display_the_result() throws CatalogueException {
+    void should_accept_a_query_and_display_the_result() throws CatalogueException, ConsoleException {
         InOrder inOrder = inOrder(console);
         given(console.getInt()).willReturn(2, 3);
         given(console.getLine()).willReturn("Book");
@@ -82,5 +82,16 @@ class AppTest {
         then(console).should(inOrder).printLn("1. 'First Book' by First Author One, First Author Two - First Publisher");
         then(console).should(inOrder).printLn("2. 'Second Book' by Second Author - Second Publisher");
         then(console).should(inOrder).printLn("3. 'Third Book' by Third Author - Third Publisher");
+    }
+
+    @Test
+    void should_prompt_for_valid_selection_on_non_integer_menu_input() throws CatalogueException, ConsoleException {
+        given(console.getInt())
+                .willThrow(new ConsoleException("There was a problem getting the next integer.", new Exception()))
+                .willReturn(3);
+
+        app.start();
+
+        then(console).should().printLn("Please enter a valid selection!");
     }
 }

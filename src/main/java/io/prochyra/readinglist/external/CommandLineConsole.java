@@ -1,6 +1,7 @@
 package io.prochyra.readinglist.external;
 
 import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.domain.ConsoleException;
 
 import java.util.Scanner;
 
@@ -24,8 +25,14 @@ public class CommandLineConsole implements Console {
     }
 
     @Override
-    public int getInt() {
-        var i = scanner.nextInt();
+    public int getInt() throws ConsoleException {
+        int i = 0;
+        try {
+            i = scanner.nextInt();
+        } catch (Exception e) {
+            scanner.nextLine();
+            throw new ConsoleException("There was a problem getting the next integer.", e);
+        }
         scanner.nextLine();
         return i;
     }

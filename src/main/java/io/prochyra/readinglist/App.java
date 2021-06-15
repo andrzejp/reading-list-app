@@ -1,9 +1,6 @@
 package io.prochyra.readinglist;
 
-import io.prochyra.readinglist.domain.Catalogue;
-import io.prochyra.readinglist.domain.CatalogueException;
-import io.prochyra.readinglist.domain.Console;
-import io.prochyra.readinglist.domain.ReadingList;
+import io.prochyra.readinglist.domain.*;
 import io.prochyra.readinglist.external.*;
 
 public class App {
@@ -48,6 +45,7 @@ public class App {
     }
 
     private void askForValidSelection() {
+        console.newLine();
         console.printLn("Please enter a valid selection!");
         console.newLine();
     }
@@ -79,10 +77,14 @@ public class App {
 
     private int getMenuChoice(String prompt) {
         console.print(prompt + ": ");
-        var choice = console.getInt();
+        var choice = 0;
+        try {
+            choice = console.getInt();
+        } catch (ConsoleException e) {
+            return choice;
+        }
         console.newLine();
         return choice;
-
     }
 
     private void printMainMenu() {

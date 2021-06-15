@@ -8,7 +8,7 @@ public interface Console {
 
     String getLine();
 
-    int getInt();
+    int getInt() throws ConsoleException;
 
     void print(String s);
 }
