@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static java.util.List.of;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.inOrder;
@@ -93,5 +94,15 @@ class AppTest {
         app.start();
 
         then(console).should().printLn("Please enter a valid selection!");
+    }
+
+    @Test
+    void should_show_message_on_problem_accessing_catalogue() throws ConsoleException, CatalogueException {
+        given(console.getInt()).willReturn(2, 3);
+        given(catalogue.find(any())).willThrow(new CatalogueException("Error message", new Exception()));
+
+        app.start();
+
+        then(console).should().printLn("There was a problem accessing the book catalogue, please try again.");
     }
 }

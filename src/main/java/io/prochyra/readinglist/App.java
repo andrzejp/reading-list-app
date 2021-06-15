@@ -3,6 +3,8 @@ package io.prochyra.readinglist;
 import io.prochyra.readinglist.domain.*;
 import io.prochyra.readinglist.external.*;
 
+import java.util.List;
+
 public class App {
 
     private final Console console;
@@ -58,7 +60,14 @@ public class App {
 
     private void searchForBooks() throws CatalogueException {
         var query = getString("Enter query");
-        var queryResults = catalogue.find(query);
+        List<Book> queryResults = null;
+        try {
+            queryResults = catalogue.find(query);
+        } catch (CatalogueException e) {
+            console.printLn("There was a problem accessing the book catalogue, please try again.");
+            console.newLine();
+            return;
+        }
         viewer.show(queryResults);
         console.newLine();
     }
