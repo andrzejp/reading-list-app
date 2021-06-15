@@ -20,7 +20,7 @@ public class App {
         this.readingList = readingList;
     }
 
-    public static void main(String[] args) throws CatalogueException {
+    public static void main(String[] args) {
         var console = new CommandLineConsole();
         var bookAdapter = new GoogleBookAdapter();
         var catalogue = new GoogleBooksCatalogue(bookAdapter);
@@ -32,7 +32,7 @@ public class App {
         app.start();
     }
 
-    public void start() throws CatalogueException {
+    public void start() {
         isRunning = true;
 
         while (isRunning) {
@@ -58,9 +58,9 @@ public class App {
         isRunning = false;
     }
 
-    private void searchForBooks() throws CatalogueException {
+    private void searchForBooks() {
         var query = getString("Enter query");
-        List<Book> queryResults = null;
+        List<Book> queryResults;
         try {
             queryResults = catalogue.find(query);
         } catch (CatalogueException e) {

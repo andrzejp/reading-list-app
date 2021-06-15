@@ -31,7 +31,7 @@ import static org.mockito.BDDMockito.given;
 @DisplayNameGeneration(ReplaceUnderscores.class)
 class GoogleBooksCatalogueTest extends WireMockTest {
 
-    Map<String, List<Book>> expectedBooks = Map.of(
+    final Map<String, List<Book>> expectedBooks = Map.of(
             "1984", of(
                     new Book("1984", of("George Orwell"), "Houghton Mifflin Harcourt"),
                     new Book("The Year Book Of World Affairs 1984", of("George W Keeton"), "Routledge"),

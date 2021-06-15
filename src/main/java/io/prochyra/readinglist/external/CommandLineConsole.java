@@ -26,7 +26,7 @@ public class CommandLineConsole implements Console {
 
     @Override
     public int getInt() throws ConsoleException {
-        int i = 0;
+        var i = 0;
         try {
             i = scanner.nextInt();
         } catch (Exception e) {

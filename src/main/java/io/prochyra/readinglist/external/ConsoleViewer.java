@@ -21,7 +21,7 @@ public abstract class ConsoleViewer implements BookListViewer {
         if (books.isEmpty()) {
             printEmptyListMessage();
         } else {
-            for (int i = 0; i < books.size(); i++) {
+            for (var i = 0; i < books.size(); i++) {
                 console.printLn((i + 1) + ". " + books.get(i));
             }
         }
