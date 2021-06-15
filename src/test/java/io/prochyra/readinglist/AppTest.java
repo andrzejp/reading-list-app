@@ -38,6 +38,8 @@ class AppTest {
     void should_display_a_main_menu() throws CatalogueException {
         InOrder inOrder = inOrder(console);
 
+        given(console.getInt()).willReturn(3);
+
         app.start();
 
         then(console).should(inOrder).printLn("📚 READING LIST APP™️ 📚");
@@ -52,7 +54,7 @@ class AppTest {
 
     @Test
     void should_display_reading_list() throws CatalogueException {
-        given(console.getInt()).willReturn(1);
+        given(console.getInt()).willReturn(1, 3);
 
         app.start();
 
@@ -62,7 +64,7 @@ class AppTest {
     @Test
     void should_accept_a_query_and_display_the_result() throws CatalogueException {
         InOrder inOrder = inOrder(console);
-        given(console.getInt()).willReturn(2);
+        given(console.getInt()).willReturn(2, 3);
         given(console.getLine()).willReturn("Book");
         given(catalogue.find("Book"))
                 .willReturn(of(

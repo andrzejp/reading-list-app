@@ -12,6 +12,7 @@ public class App {
     private final Catalogue catalogue;
     private final SearchResultViewer viewer;
     private final ReadingList readingList;
+    private boolean isRunning;
 
     public App(Console console, Catalogue catalogue, SearchResultViewer viewer, ReadingList readingList) {
         this.console = console;
@@ -33,21 +34,55 @@ public class App {
     }
 
     public void start() throws CatalogueException {
-        printMainMenu();
+        isRunning = true;
 
-        var choice = console.getInt();
-
-        if (choice == 1) {
-            console.newLine();
-            readingList.view();
-        } else {
-            console.newLine();
-            console.print("Enter query: ");
-            var query = console.getLine();
-            var queryResults = catalogue.find(query);
-            console.newLine();
-            viewer.show(queryResults);
+        while (isRunning) {
+            printMainMenu();
+            switch (getMenuChoice("Enter selection (1-3)")) {
+                case 1 -> viewReadingList();
+                case 2 -> searchForBooks();
+                case 3 -> quit();
+                default -> askForValidSelection();
+            }
         }
+    }
+
+    private void askForValidSelection() {
+        console.printLn("Please enter a valid selection!");
+        console.newLine();
+    }
+
+    private void quit() {
+        console.printLn("Happy reading!");
+        console.printLn("👋 Bye!");
+        isRunning = false;
+    }
+
+    private void searchForBooks() throws CatalogueException {
+        var query = getString("Enter query");
+        var queryResults = catalogue.find(query);
+        viewer.show(queryResults);
+        console.newLine();
+    }
+
+    private String getString(String prompt) {
+        console.print(prompt + ": ");
+        var s = console.getLine();
+        console.newLine();
+        return s;
+    }
+
+    private void viewReadingList() {
+        readingList.view();
+        console.newLine();
+    }
+
+    private int getMenuChoice(String prompt) {
+        console.print(prompt + ": ");
+        var choice = console.getInt();
+        console.newLine();
+        return choice;
+
     }
 
     private void printMainMenu() {
@@ -58,6 +93,5 @@ public class App {
         console.printLn("2 - 🔎 Search for books to add");
         console.printLn("3 - 🛑 Quit");
         console.newLine();
-        console.print("Enter selection (1-3): ");
     }
 }
