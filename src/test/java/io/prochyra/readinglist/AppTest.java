@@ -65,7 +65,7 @@ class AppTest {
     @Test
     void should_accept_a_query_and_display_the_result() throws CatalogueException, ConsoleException {
         InOrder inOrder = inOrder(console);
-        given(console.getInt()).willReturn(2, 3);
+        given(console.getInt()).willReturn(2, 0, 3);
         given(console.getLine()).willReturn("Book");
         given(catalogue.find("Book"))
                 .willReturn(of(
@@ -104,5 +104,22 @@ class AppTest {
         app.start();
 
         then(console).should().printLn("There was a problem accessing the book catalogue, please try again.");
+    }
+
+    @Test
+    void should_prompt_and_add_to_reading_list() throws ConsoleException, CatalogueException {
+        var book1 = new Book("First Book", of("First Author One", "First Author Two"), "First Publisher");
+        var book2 = new Book("Second Book", of("Second Author"), "Second Publisher");
+        var book3 = new Book("Third Book", of("Third Author"), "Third Publisher");
+
+        given(console.getInt()).willReturn(2, 1, 3);
+        given(console.getLine()).willReturn("Book");
+        given(catalogue.find("Book")).willReturn(of(book1, book2, book3));
+
+        app.start();
+
+        then(console).should().print("Add one to your reading list (1-5)? [0 = MAIN MENU]: ");
+        then(readingList).should().save(book1);
+        then(console).should().printLn(book1 + " has been added.");
     }
 }

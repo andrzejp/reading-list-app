@@ -70,6 +70,17 @@ public class App {
         }
         viewer.show(queryResults);
         console.newLine();
+
+        var choice = getMenuChoice("Add one to your reading list (1-5)? [0 = MAIN MENU]");
+
+        if (choice == 0)
+            return;
+
+        var chosenBook = queryResults.get(choice - 1);
+
+        readingList.save(chosenBook);
+        console.printLn(chosenBook + " has been added.");
+        console.newLine();
     }
 
     private String getString(String prompt) {
