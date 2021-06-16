@@ -40,7 +40,12 @@ public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObje
         var publisher = volumeInfo.getString("publisher", "UNKNOWN");
         var authors = new ArrayList<String>();
         if (volumeInfo.containsKey("authors"))
-            authors.addAll(volumeInfo.getJsonArray("authors").getValuesAs(JsonString.class).stream().map(JsonString::getString).collect(Collectors.toList()));
+            authors.addAll(
+                    volumeInfo.getJsonArray("authors")
+                    .getValuesAs(JsonString.class)
+                    .stream()
+                    .map(JsonString::getString)
+                    .collect(Collectors.toList()));
 
         return new Book(title, authors, publisher);
     }
