@@ -5,7 +5,7 @@
 
 A command line application for using the Google Books API.
 
-To run with Apache Maven:
+To run with Apache Maven and Java 16:
 
 Create an executable uber JAR with:
 
