@@ -121,7 +121,7 @@ class AppTest {
 
         app.start();
 
-        then(console).should().print("Add one to your reading list (1-5)? [0 = MAIN MENU]: ");
+        then(console).should().print("Add one to your reading list? [0 = MAIN MENU] (0-3): ");
         then(readingList).should().save(book1);
         then(console).should().printLn(book1 + " has been added.");
     }
@@ -135,5 +135,20 @@ class AppTest {
         thenNoException().isThrownBy(() -> app.start());
 
         then(console).should(never()).print(contains("Add one to your reading list"));
+    }
+
+    @Test
+    void should_keep_prompting_for_valid_book_selection_if_input_out_of_range() throws ConsoleException, CatalogueException {
+        var book1 = new Book("First Book", of("First Author One", "First Author Two"), "First Publisher");
+        var book2 = new Book("Second Book", of("Second Author"), "Second Publisher");
+
+        given(console.getInt()).willReturn(2, 3, 2, 3);
+        given(console.getLine()).willReturn("a book title");
+        given(catalogue.find(anyString())).willReturn(of(book1, book2));
+
+        thenNoException().isThrownBy(() -> app.start());
+
+        then(console).should().printLn("Please enter a valid selection!");
+        then(readingList).should().save(book2);
     }
 }

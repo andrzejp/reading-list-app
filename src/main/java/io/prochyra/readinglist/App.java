@@ -37,7 +37,7 @@ public class App {
 
         while (isRunning) {
             printMainMenu();
-            switch (getMenuChoice("Enter selection (1-3)")) {
+            switch (getMenuChoice("Enter selection", 1, 3)) {
                 case 1 -> viewReadingList();
                 case 2 -> searchForBooks();
                 case 3 -> quit();
@@ -77,7 +77,7 @@ public class App {
     }
 
     private void manageReadingList(List<Book> queryResults) {
-        var choice = getMenuChoice("Add one to your reading list (1-5)? [0 = MAIN MENU]");
+        var choice = getMenuChoice("Add one to your reading list? [0 = MAIN MENU]", 0, queryResults.size());
 
         if (choice == 0)
             return;
@@ -98,19 +98,29 @@ public class App {
 
     private void viewReadingList() {
         readingList.view();
-        console.newLine();
     }
 
-    private int getMenuChoice(String prompt) {
-        console.print(prompt + ": ");
-        var choice = 0;
-        try {
-            choice = console.getInt();
-        } catch (ConsoleException e) {
-            return choice;
+    private int getMenuChoice(String prompt, int first, int last) {
+        while (true) {
+            var choice = 0;
+
+            console.newLine();
+            console.print(prompt + " (" + first + "-" + last + "): ");
+
+            try {
+                choice = console.getInt();
+            } catch (ConsoleException e) {
+                console.newLine();
+                askForValidSelection();
+                continue;
+            }
+            console.newLine();
+
+            if (choice >= first && choice <= last)
+                return choice;
+
+            askForValidSelection();
         }
-        console.newLine();
-        return choice;
     }
 
     private void printMainMenu() {
