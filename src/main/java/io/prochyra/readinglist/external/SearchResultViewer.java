@@ -16,7 +16,5 @@ public class SearchResultViewer extends ConsoleViewer {
     @Override
     void printHeader() {
         console.printLn("SEARCH RESULTS");
-        console.printLn("--------------");
-        console.newLine();
     }
 }

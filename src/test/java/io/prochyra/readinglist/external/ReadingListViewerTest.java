@@ -35,8 +35,6 @@ class ReadingListViewerTest {
         viewer.show(emptyList());
 
         then(console).should().printLn("READING LIST");
-        then(console).should().printLn("------------");
-        then(console).should(atLeastOnce()).newLine();
     }
 
     @Test

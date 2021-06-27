@@ -14,8 +14,6 @@ public class ReadingListViewer extends ConsoleViewer {
     @Override
     protected void printHeader() {
         console.printLn(TITLE);
-        console.printLn("------------");
-        console.newLine();
     }
 
     @Override

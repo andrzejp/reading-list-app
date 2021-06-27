@@ -47,8 +47,6 @@ class AppTest {
         app.start();
 
         then(console).should(inOrder).printLn("📚 READING LIST APP™️ 📚");
-        then(console).should(inOrder).printLn("-------------------------");
-        then(console).should(inOrder).newLine();
         then(console).should(inOrder).printLn("1 - 📖 View Reading List");
         then(console).should(inOrder).printLn("2 - 🔎 Search for books to add");
         then(console).should(inOrder).printLn("3 - 🛑 Quit");
@@ -81,8 +79,6 @@ class AppTest {
         then(console).should(inOrder).print("Enter query: ");
 
         then(console).should(inOrder).printLn("SEARCH RESULTS");
-        then(console).should(inOrder).printLn("--------------");
-        then(console).should(inOrder).newLine();
         then(console).should(inOrder).printLn("1. 'First Book' by First Author One, First Author Two - First Publisher");
         then(console).should(inOrder).printLn("2. 'Second Book' by Second Author - Second Publisher");
         then(console).should(inOrder).printLn("3. 'Third Book' by Third Author - Third Publisher");

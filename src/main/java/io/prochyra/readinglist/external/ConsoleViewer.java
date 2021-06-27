@@ -25,7 +25,6 @@ public abstract class ConsoleViewer implements BookListViewer {
                 console.printLn((i + 1) + ". " + books.get(i));
             }
         }
-        console.newLine();
     }
 
     protected abstract void printEmptyListMessage();

@@ -47,14 +47,13 @@ public class App {
     }
 
     private void askForValidSelection() {
-        console.newLine();
         console.printLn("Please enter a valid selection!");
-        console.newLine();
     }
 
     private void quit() {
         console.printLn("Happy reading!");
         console.printLn("👋 Bye!");
+        console.newLine();
         isRunning = false;
     }
 
@@ -65,7 +64,6 @@ public class App {
             queryResults = catalogue.find(query);
         } catch (CatalogueException e) {
             console.printLn("There was a problem accessing the book catalogue, please try again.");
-            console.newLine();
             return;
         }
         viewer.show(queryResults);
@@ -124,12 +122,10 @@ public class App {
     }
 
     private void printMainMenu() {
-        console.printLn("📚 READING LIST APP™️ 📚");
-        console.printLn("-------------------------");
         console.newLine();
+        console.printLn("📚 READING LIST APP™️ 📚");
         console.printLn("1 - 📖 View Reading List");
         console.printLn("2 - 🔎 Search for books to add");
         console.printLn("3 - 🛑 Quit");
-        console.newLine();
     }
 }
