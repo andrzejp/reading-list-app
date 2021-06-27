@@ -11,11 +11,14 @@ import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static java.util.Collections.emptyList;
 import static java.util.List.of;
-import static org.mockito.ArgumentMatchers.any;
+import static org.assertj.core.api.BDDAssertions.thenNoException;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.never;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -121,5 +124,16 @@ class AppTest {
         then(console).should().print("Add one to your reading list (1-5)? [0 = MAIN MENU]: ");
         then(readingList).should().save(book1);
         then(console).should().printLn(book1 + " has been added.");
+    }
+
+    @Test
+    void should_not_invite_user_to_add_a_book_when_no_books_found() throws ConsoleException, CatalogueException {
+        given(console.getInt()).willReturn(2, 3);
+        given(console.getLine()).willReturn("Query that returns no results");
+        given(catalogue.find(anyString())).willReturn(emptyList());
+
+        thenNoException().isThrownBy(() -> app.start());
+
+        then(console).should(never()).print(contains("Add one to your reading list"));
     }
 }

@@ -70,6 +70,13 @@ public class App {
         }
         viewer.show(queryResults);
 
+        if (queryResults.isEmpty())
+            return;
+
+        manageReadingList(queryResults);
+    }
+
+    private void manageReadingList(List<Book> queryResults) {
         var choice = getMenuChoice("Add one to your reading list (1-5)? [0 = MAIN MENU]");
 
         if (choice == 0)
