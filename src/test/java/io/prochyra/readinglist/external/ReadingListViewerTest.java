@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static java.util.Collections.emptyList;
 import static java.util.List.of;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.atLeastOnce;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -35,7 +36,7 @@ class ReadingListViewerTest {
 
         then(console).should().printLn("READING LIST");
         then(console).should().printLn("------------");
-        then(console).should().newLine();
+        then(console).should(atLeastOnce()).newLine();
     }
 
     @Test

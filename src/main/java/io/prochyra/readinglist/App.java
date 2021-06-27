@@ -69,7 +69,6 @@ public class App {
             return;
         }
         viewer.show(queryResults);
-        console.newLine();
 
         var choice = getMenuChoice("Add one to your reading list (1-5)? [0 = MAIN MENU]");
 
