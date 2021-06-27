@@ -119,7 +119,7 @@ class AppTest {
 
         then(console).should().print("Add one to your reading list? [0 = MAIN MENU] (0-3): ");
         then(readingList).should().save(book1);
-        then(console).should().printLn(book1 + " has been added.");
+        then(console).should().printLn("[" + book1 + "] has been added.");
     }
 
     @Test

@@ -83,8 +83,7 @@ public class App {
         var chosenBook = queryResults.get(choice - 1);
 
         readingList.save(chosenBook);
-        console.printLn(chosenBook + " has been added.");
-        console.newLine();
+        console.printLn("[" + chosenBook + "] has been added.");
     }
 
     private String getString(String prompt) {
