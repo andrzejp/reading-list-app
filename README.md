@@ -32,7 +32,7 @@ To process the API'S JSON representations I choose the Jakarta JSON Binding API 
 I choose IntelliJ IDEA due to my familiarity with it.
 
 ## Process
-1. Start a new Maven project using my Maven archetype that I keep updated with the latest dependency versions and a minimal POM.
+1. Start a new Maven project using [my Maven archetype](https://github.com/andrzejp/tdd-starter/) that I keep updated with the latest dependency versions and a minimal POM.
 2. I see that the requirements essentially specify two features:
     - Querying a book catalogue (Google Books) for a book
     - Maintaining a "Reading List"
