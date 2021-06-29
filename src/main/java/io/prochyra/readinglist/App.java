@@ -42,7 +42,7 @@ public class App {
         app.start();
     }
 
-    public void start() {
+    void start() {
         isRunning = true;
 
         while (isRunning) {
