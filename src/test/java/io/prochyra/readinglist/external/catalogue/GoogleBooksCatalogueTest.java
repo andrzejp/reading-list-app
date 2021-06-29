@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.http.Fault.RANDOM_DATA_THEN_CLOSE;
 import static java.net.URLEncoder.encode;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.List.of;
@@ -85,5 +86,25 @@ class GoogleBooksCatalogueTest extends WireMockTest {
         thenExceptionOfType(CatalogueException.class)
                 .isThrownBy(() -> catalogue.find("anything"))
                 .withMessage("There was a problem accessing the Google Books API");
+    }
+
+    @Test
+    void should_throw_a_CatalogueException_on_IO_error() {
+        givenThat(get(anyUrl())
+                .willReturn(aResponse().withFault(RANDOM_DATA_THEN_CLOSE)));
+
+        thenExceptionOfType(CatalogueException.class)
+                .isThrownBy(() -> catalogue.find("anything"))
+                .withMessage("There was a problem accessing the Google Books API");
+    }
+
+    @Test
+    void should_throw_a_CatalogueException_on_malformed_response() {
+        givenThat(get(anyUrl())
+                .willReturn(ok().withBody("{")));
+
+        thenExceptionOfType(CatalogueException.class)
+                .isThrownBy(() -> catalogue.find("anything"))
+                .withMessage("There was a problem deserializing the response from the Google Books API");
     }
 }
