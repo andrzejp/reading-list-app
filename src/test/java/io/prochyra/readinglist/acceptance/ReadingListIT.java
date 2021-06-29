@@ -37,7 +37,7 @@ class ReadingListIT extends WireMockTest {
 
     @Test
     void should_save_books_to_reading_list_and_display_it() {
-        BookListViewer viewer = new ReadingListViewer(console);
+        ReadingListViewer viewer = new ReadingListViewer(console);
         ReadingList readingList = new ReadingList(viewer, new InMemoryBookRepository());
 
         Book book1 = new Book("Title", of("Author"), "Publisher");

@@ -2,7 +2,7 @@ package io.prochyra.readinglist.external;
 
 import io.prochyra.readinglist.domain.Console;
 
-public class SearchResultViewer extends ConsoleViewer {
+public class SearchResultViewer extends BookListViewer {
 
     public SearchResultViewer(Console console) {
         super(console);

@@ -1,21 +1,19 @@
 package io.prochyra.readinglist.external;
 
 import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.BookListViewer;
 import io.prochyra.readinglist.domain.Console;
 
 import java.util.List;
 
-public abstract class ConsoleViewer implements BookListViewer {
+public abstract class BookListViewer {
 
     final Console console;
 
-    ConsoleViewer(Console console) {
+    BookListViewer(Console console) {
         this.console = console;
     }
 
-    @Override
-    public final void show(List<Book> books) {
+    public void show(List<Book> books) {
         printHeader();
 
         if (books.isEmpty()) {

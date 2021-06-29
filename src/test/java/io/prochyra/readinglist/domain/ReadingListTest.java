@@ -1,10 +1,11 @@
 package io.prochyra.readinglist.domain;
 
-import org.junit.jupiter.api.BeforeEach;
+import io.prochyra.readinglist.external.ReadingListViewer;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -20,15 +21,11 @@ import static org.mockito.BDDMockito.then;
 class ReadingListTest {
 
     @Mock
-    private BookListViewer viewer;
+    private ReadingListViewer viewer;
     @Mock
     private BookRepository repository;
+    @InjectMocks
     private ReadingList readingList;
-
-    @BeforeEach
-    void setUp() {
-        readingList = new ReadingList(viewer, repository);
-    }
 
     @Test
     void should_start_out_empty() {
