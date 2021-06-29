@@ -2,7 +2,7 @@ package io.prochyra.readinglist.external.console;
 
 public interface Console {
 
-    void printLn(String s);
+    void printLine(String s);
 
     void newLine();
 

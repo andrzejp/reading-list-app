@@ -7,7 +7,7 @@ public class CommandLineConsole implements Console {
     private final Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void printLn(String s) {
+    public void printLine(String s) {
         System.out.println(s);
     }
 

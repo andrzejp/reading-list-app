@@ -1,8 +1,6 @@
 package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.application.Book;
 import io.prochyra.readinglist.external.console.Console;
-import io.prochyra.readinglist.application.ReadingListViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -34,14 +32,14 @@ class ReadingListViewerTest {
 
         viewer.show(emptyList());
 
-        then(console).should().printLn("READING LIST");
+        then(console).should().printLine("READING LIST");
     }
 
     @Test
     void should_show_a_message_when_the_list_is_empty() {
         viewer.show(emptyList());
 
-        then(console).should().printLn("You have no books in your reading list!");
+        then(console).should().printLine("You have no books in your reading list!");
     }
 
     @Test
@@ -54,8 +52,8 @@ class ReadingListViewerTest {
 
         viewer.show(books);
 
-        then(console).should().printLn("1. 'First Book' by First Author One, First Author Two - First Publisher");
-        then(console).should().printLn("2. 'Second Book' by Second Author - Second Publisher");
-        then(console).should().printLn("3. 'Third Book' by Third Author - Third Publisher");
+        then(console).should().printLine("1. 'First Book' by First Author One, First Author Two - First Publisher");
+        then(console).should().printLine("2. 'Second Book' by Second Author - Second Publisher");
+        then(console).should().printLine("3. 'Third Book' by Third Author - Third Publisher");
     }
 }

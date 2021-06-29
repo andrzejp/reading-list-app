@@ -19,7 +19,7 @@ public abstract class BookListViewer {
             printEmptyListMessage();
         } else {
             for (var i = 0; i < books.size(); i++) {
-                console.printLn((i + 1) + ". " + books.get(i));
+                console.printLine((i + 1) + ". " + books.get(i));
             }
         }
     }

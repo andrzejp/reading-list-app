@@ -4,17 +4,20 @@ import io.prochyra.readinglist.external.console.Console;
 
 public class SearchResultViewer extends BookListViewer {
 
+    private static final String EMPTY_LIST_MESSAGE = "There were no results for that query.";
+    private static final String TITLE = "SEARCH RESULTS";
+
     public SearchResultViewer(Console console) {
         super(console);
     }
 
     @Override
-    void printEmptyListMessage() {
-        console.printLn("There were no results for that query.");
+    void printHeader() {
+        console.printLine(TITLE);
     }
 
     @Override
-    void printHeader() {
-        console.printLn("SEARCH RESULTS");
+    void printEmptyListMessage() {
+        console.printLine(EMPTY_LIST_MESSAGE);
     }
 }

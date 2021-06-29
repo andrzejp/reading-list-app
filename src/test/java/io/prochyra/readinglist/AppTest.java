@@ -49,10 +49,10 @@ class AppTest {
 
         app.start();
 
-        then(console).should(inOrder).printLn("📚 READING LIST APP™️ 📚");
-        then(console).should(inOrder).printLn("1 - 📖 View Reading List");
-        then(console).should(inOrder).printLn("2 - 🔎 Search for books to add");
-        then(console).should(inOrder).printLn("3 - 🛑 Quit");
+        then(console).should(inOrder).printLine("📚 READING LIST APP™️ 📚");
+        then(console).should(inOrder).printLine("1 - 📖 View Reading List");
+        then(console).should(inOrder).printLine("2 - 🔎 Search for books to add");
+        then(console).should(inOrder).printLine("3 - 🛑 Quit");
         then(console).should(inOrder).newLine();
         then(console).should(inOrder).print("Enter selection (1-3): ");
     }
@@ -81,10 +81,10 @@ class AppTest {
 
         then(console).should(inOrder).print("Enter query: ");
 
-        then(console).should(inOrder).printLn("SEARCH RESULTS");
-        then(console).should(inOrder).printLn("1. 'First Book' by First Author One, First Author Two - First Publisher");
-        then(console).should(inOrder).printLn("2. 'Second Book' by Second Author - Second Publisher");
-        then(console).should(inOrder).printLn("3. 'Third Book' by Third Author - Third Publisher");
+        then(console).should(inOrder).printLine("SEARCH RESULTS");
+        then(console).should(inOrder).printLine("1. 'First Book' by First Author One, First Author Two - First Publisher");
+        then(console).should(inOrder).printLine("2. 'Second Book' by Second Author - Second Publisher");
+        then(console).should(inOrder).printLine("3. 'Third Book' by Third Author - Third Publisher");
     }
 
     @Test
@@ -95,7 +95,7 @@ class AppTest {
 
         app.start();
 
-        then(console).should().printLn("Please enter a valid selection!");
+        then(console).should().printLine("Please enter a valid selection!");
     }
 
     @Test
@@ -105,7 +105,7 @@ class AppTest {
 
         app.start();
 
-        then(console).should().printLn("There was a problem accessing the book catalogue, please try again.");
+        then(console).should().printLine("There was a problem accessing the book catalogue, please try again.");
     }
 
     @Test
@@ -122,7 +122,7 @@ class AppTest {
 
         then(console).should().print("Add one to your reading list? [0 = MAIN MENU] (0-3): ");
         then(readingList).should().save(book1);
-        then(console).should().printLn("[" + book1 + "] has been added.");
+        then(console).should().printLine("[" + book1 + "] has been added.");
     }
 
     @Test
@@ -147,7 +147,7 @@ class AppTest {
 
         thenNoException().isThrownBy(() -> app.start());
 
-        then(console).should().printLn("Please enter a valid selection!");
+        then(console).should().printLine("Please enter a valid selection!");
         then(readingList).should().save(book2);
     }
 }

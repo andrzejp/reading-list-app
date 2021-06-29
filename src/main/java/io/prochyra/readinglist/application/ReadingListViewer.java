@@ -13,11 +13,11 @@ public class ReadingListViewer extends BookListViewer {
 
     @Override
     void printHeader() {
-        console.printLn(TITLE);
+        console.printLine(TITLE);
     }
 
     @Override
     void printEmptyListMessage() {
-        console.printLn(EMPTY_LIST_MESSAGE);
+        console.printLine(EMPTY_LIST_MESSAGE);
     }
 }

@@ -56,55 +56,12 @@ public class App {
         }
     }
 
-    private void askForValidSelection() {
-        console.printLn("Please enter a valid selection!");
-    }
-
-    private void quit() {
-        console.printLn("Happy reading!");
-        console.printLn("👋 Bye!");
+    private void printMainMenu() {
         console.newLine();
-        isRunning = false;
-    }
-
-    private void searchForBooks() {
-        var query = getQuery();
-        List<Book> queryResults;
-        try {
-            queryResults = catalogue.find(query);
-        } catch (CatalogueException e) {
-            console.printLn("There was a problem accessing the book catalogue, please try again.");
-            return;
-        }
-        viewer.show(queryResults);
-
-        if (queryResults.isEmpty())
-            return;
-
-        manageReadingList(queryResults);
-    }
-
-    private void manageReadingList(List<Book> queryResults) {
-        var choice = getMenuChoice("Add one to your reading list? [0 = MAIN MENU]", 0, queryResults.size());
-
-        if (choice == 0)
-            return;
-
-        var chosenBook = queryResults.get(choice - 1);
-
-        readingList.save(chosenBook);
-        console.printLn("[" + chosenBook + "] has been added.");
-    }
-
-    private String getQuery() {
-        console.print("Enter query" + ": ");
-        var s = console.getLine();
-        console.newLine();
-        return s;
-    }
-
-    private void viewReadingList() {
-        readingList.view();
+        console.printLine("📚 READING LIST APP™️ 📚");
+        console.printLine("1 - 📖 View Reading List");
+        console.printLine("2 - 🔎 Search for books to add");
+        console.printLine("3 - 🛑 Quit");
     }
 
     private int getMenuChoice(String prompt, int first, int last) {
@@ -130,11 +87,54 @@ public class App {
         }
     }
 
-    private void printMainMenu() {
+    private void askForValidSelection() {
+        console.printLine("Please enter a valid selection!");
+    }
+
+    private void viewReadingList() {
+        readingList.view();
+    }
+
+    private void searchForBooks() {
+        var query = getQuery();
+        List<Book> queryResults;
+        try {
+            queryResults = catalogue.find(query);
+        } catch (CatalogueException e) {
+            console.printLine("There was a problem accessing the book catalogue, please try again.");
+            return;
+        }
+        viewer.show(queryResults);
+
+        if (queryResults.isEmpty())
+            return;
+
+        manageReadingList(queryResults);
+    }
+
+    private String getQuery() {
+        console.print("Enter query" + ": ");
+        var s = console.getLine();
         console.newLine();
-        console.printLn("📚 READING LIST APP™️ 📚");
-        console.printLn("1 - 📖 View Reading List");
-        console.printLn("2 - 🔎 Search for books to add");
-        console.printLn("3 - 🛑 Quit");
+        return s;
+    }
+
+    private void manageReadingList(List<Book> queryResults) {
+        var choice = getMenuChoice("Add one to your reading list? [0 = MAIN MENU]", 0, queryResults.size());
+
+        if (choice == 0)
+            return;
+
+        var chosenBook = queryResults.get(choice - 1);
+
+        readingList.save(chosenBook);
+        console.printLine("[" + chosenBook + "] has been added.");
+    }
+
+    private void quit() {
+        console.printLine("Happy reading!");
+        console.printLine("👋 Bye!");
+        console.newLine();
+        isRunning = false;
     }
 }

@@ -1,7 +1,6 @@
 package io.prochyra.readinglist.application;
 
 import io.prochyra.readinglist.external.console.Console;
-import io.prochyra.readinglist.application.SearchResultViewer;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
@@ -24,6 +23,6 @@ class SearchResultViewerTest {
 
         viewer.printEmptyListMessage();
 
-        then(console).should().printLn("There were no results for that query.");
+        then(console).should().printLine("There were no results for that query.");
     }
 }

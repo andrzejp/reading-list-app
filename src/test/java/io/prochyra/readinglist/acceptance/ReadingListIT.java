@@ -55,8 +55,8 @@ class ReadingListIT extends WireMockTest {
 
         readingList.view();
 
-        then(console).should().printLn("1. 'Title' by Author - Publisher");
-        then(console).should().printLn("2. 'Title2' by Author2 - Publisher2");
-        then(console).should().printLn("3. 'Title3' by Author3 - Publisher3");
+        then(console).should().printLine("1. 'Title' by Author - Publisher");
+        then(console).should().printLine("2. 'Title2' by Author2 - Publisher2");
+        then(console).should().printLine("3. 'Title3' by Author3 - Publisher3");
     }
 }
