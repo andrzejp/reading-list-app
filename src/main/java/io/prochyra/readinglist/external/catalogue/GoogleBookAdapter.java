@@ -7,9 +7,9 @@ import jakarta.json.bind.adapter.JsonbAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObject> {
 
@@ -42,10 +42,10 @@ public class GoogleBookAdapter implements JsonbAdapter<ArrayList<Book>, JsonObje
         if (volumeInfo.containsKey("authors"))
             authors.addAll(
                     volumeInfo.getJsonArray("authors")
-                    .getValuesAs(JsonString.class)
-                    .stream()
-                    .map(JsonString::getString)
-                    .collect(Collectors.toList()));
+                            .getValuesAs(JsonString.class)
+                            .stream()
+                            .map(JsonString::getString)
+                            .collect(toList()));
 
         return new Book(title, authors, publisher);
     }
