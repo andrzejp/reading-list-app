@@ -55,5 +55,5 @@ The implementation that I achieved in the time is rather basic and there are a n
 - Disallowing adding a book to the reading list twice
 - Considering the case when a book's author is unknown
 - A friendlier way of dealing with API connection issues, i.e. we currently block for the default `HttpClient` timeout time. It would be better to give an indication that something is happening and reduce the timeout time or retry
-- Check book choice input is in the right range
+- ~~Check book choice input is in the right range~~
 - Factor out menu functionality - displaying menus, accepting input could be a separate concern and actions performed by menu choices could be encapsulated, using the Command Pattern.
