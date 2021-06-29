@@ -1,6 +1,9 @@
 package io.prochyra.readinglist;
 
-import io.prochyra.readinglist.application.*;
+import io.prochyra.readinglist.application.Book;
+import io.prochyra.readinglist.application.ReadingList;
+import io.prochyra.readinglist.application.ReadingListViewer;
+import io.prochyra.readinglist.application.SearchResultViewer;
 import io.prochyra.readinglist.external.catalogue.Catalogue;
 import io.prochyra.readinglist.external.catalogue.CatalogueException;
 import io.prochyra.readinglist.external.catalogue.GoogleBookAdapter;
@@ -65,7 +68,7 @@ public class App {
     }
 
     private void searchForBooks() {
-        var query = getString("Enter query");
+        var query = getQuery();
         List<Book> queryResults;
         try {
             queryResults = catalogue.find(query);
@@ -93,8 +96,8 @@ public class App {
         console.printLn("[" + chosenBook + "] has been added.");
     }
 
-    private String getString(String prompt) {
-        console.print(prompt + ": ");
+    private String getQuery() {
+        console.print("Enter query" + ": ");
         var s = console.getLine();
         console.newLine();
         return s;
