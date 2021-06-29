@@ -1,7 +1,8 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.application.Book;
+import io.prochyra.readinglist.external.console.Console;
+import io.prochyra.readinglist.application.ReadingListViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -13,7 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static java.util.Collections.emptyList;
 import static java.util.List.of;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.atLeastOnce;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)

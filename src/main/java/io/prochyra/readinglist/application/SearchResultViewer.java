@@ -1,6 +1,6 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.external.console.Console;
 
 public class SearchResultViewer extends BookListViewer {
 
@@ -9,7 +9,7 @@ public class SearchResultViewer extends BookListViewer {
     }
 
     @Override
-    protected void printEmptyListMessage() {
+    void printEmptyListMessage() {
         console.printLn("There were no results for that query.");
     }
 

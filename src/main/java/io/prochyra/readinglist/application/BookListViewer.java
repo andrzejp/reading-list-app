@@ -1,7 +1,6 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.external.console.Console;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public abstract class BookListViewer {
         }
     }
 
-    protected abstract void printEmptyListMessage();
+    abstract void printEmptyListMessage();
 
     abstract void printHeader();
 }

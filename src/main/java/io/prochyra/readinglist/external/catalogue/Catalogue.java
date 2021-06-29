@@ -1,4 +1,6 @@
-package io.prochyra.readinglist.domain;
+package io.prochyra.readinglist.external.catalogue;
+
+import io.prochyra.readinglist.application.Book;
 
 import java.util.List;
 

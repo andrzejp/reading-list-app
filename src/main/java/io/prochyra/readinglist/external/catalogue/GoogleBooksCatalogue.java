@@ -1,8 +1,6 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.external.catalogue;
 
-import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.Catalogue;
-import io.prochyra.readinglist.domain.CatalogueException;
+import io.prochyra.readinglist.application.Book;
 import jakarta.json.bind.JsonbConfig;
 
 import java.io.IOException;

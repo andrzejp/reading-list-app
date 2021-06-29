@@ -1,7 +1,12 @@
 package io.prochyra.readinglist;
 
-import io.prochyra.readinglist.domain.*;
-import io.prochyra.readinglist.external.SearchResultViewer;
+import io.prochyra.readinglist.application.Book;
+import io.prochyra.readinglist.application.ReadingList;
+import io.prochyra.readinglist.application.SearchResultViewer;
+import io.prochyra.readinglist.external.catalogue.Catalogue;
+import io.prochyra.readinglist.external.catalogue.CatalogueException;
+import io.prochyra.readinglist.external.console.Console;
+import io.prochyra.readinglist.external.console.ConsoleException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -14,11 +19,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static java.util.Collections.emptyList;
 import static java.util.List.of;
 import static org.assertj.core.api.BDDAssertions.thenNoException;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayNameGeneration(ReplaceUnderscores.class)
@@ -87,7 +90,7 @@ class AppTest {
     @Test
     void should_prompt_for_valid_selection_on_non_integer_menu_input() throws ConsoleException {
         given(console.getInt())
-                .willThrow(new ConsoleException("There was a problem getting the next integer.", new Exception()))
+                .willThrow(mock(ConsoleException.class))
                 .willReturn(3);
 
         app.start();
@@ -98,7 +101,7 @@ class AppTest {
     @Test
     void should_show_message_on_problem_accessing_catalogue() throws ConsoleException, CatalogueException {
         given(console.getInt()).willReturn(2, 3);
-        given(catalogue.find(any())).willThrow(new CatalogueException("Error message", new Exception()));
+        given(catalogue.find(any())).willThrow(mock(CatalogueException.class));
 
         app.start();
 

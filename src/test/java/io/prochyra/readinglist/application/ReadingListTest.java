@@ -1,6 +1,9 @@
-package io.prochyra.readinglist.domain;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.external.ReadingListViewer;
+import io.prochyra.readinglist.application.Book;
+import io.prochyra.readinglist.external.repo.BookRepository;
+import io.prochyra.readinglist.application.ReadingList;
+import io.prochyra.readinglist.application.ReadingListViewer;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;

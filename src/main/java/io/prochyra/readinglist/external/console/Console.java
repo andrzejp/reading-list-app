@@ -1,4 +1,4 @@
-package io.prochyra.readinglist.domain;
+package io.prochyra.readinglist.external.console;
 
 public interface Console {
 

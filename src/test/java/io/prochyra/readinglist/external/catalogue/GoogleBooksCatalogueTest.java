@@ -1,9 +1,7 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.external.catalogue;
 
 import io.prochyra.readinglist.WireMockTest;
-import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.Catalogue;
-import io.prochyra.readinglist.domain.CatalogueException;
+import io.prochyra.readinglist.application.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;

@@ -1,6 +1,7 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.external.catalogue;
 
-import io.prochyra.readinglist.domain.Book;
+import io.prochyra.readinglist.application.Book;
+import io.prochyra.readinglist.external.catalogue.GoogleBookAdapter;
 import jakarta.json.JsonObject;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;

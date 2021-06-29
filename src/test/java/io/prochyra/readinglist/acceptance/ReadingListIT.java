@@ -1,8 +1,13 @@
 package io.prochyra.readinglist.acceptance;
 
 import io.prochyra.readinglist.WireMockTest;
-import io.prochyra.readinglist.domain.*;
-import io.prochyra.readinglist.external.*;
+import io.prochyra.readinglist.application.*;
+import io.prochyra.readinglist.external.catalogue.Catalogue;
+import io.prochyra.readinglist.external.catalogue.CatalogueException;
+import io.prochyra.readinglist.external.catalogue.GoogleBookAdapter;
+import io.prochyra.readinglist.external.catalogue.GoogleBooksCatalogue;
+import io.prochyra.readinglist.external.console.Console;
+import io.prochyra.readinglist.external.repo.InMemoryBookRepository;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;

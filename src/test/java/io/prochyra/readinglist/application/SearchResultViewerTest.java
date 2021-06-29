@@ -1,6 +1,7 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.external.console.Console;
+import io.prochyra.readinglist.application.SearchResultViewer;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
-package io.prochyra.readinglist.domain;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.external.ReadingListViewer;
+import io.prochyra.readinglist.external.repo.BookRepository;
 
 public class ReadingList {
 

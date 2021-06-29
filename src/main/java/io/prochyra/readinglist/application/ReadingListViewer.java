@@ -1,6 +1,6 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.application;
 
-import io.prochyra.readinglist.domain.Console;
+import io.prochyra.readinglist.external.console.Console;
 
 public class ReadingListViewer extends BookListViewer {
 
@@ -12,12 +12,12 @@ public class ReadingListViewer extends BookListViewer {
     }
 
     @Override
-    protected void printHeader() {
+    void printHeader() {
         console.printLn(TITLE);
     }
 
     @Override
-    protected void printEmptyListMessage() {
+    void printEmptyListMessage() {
         console.printLn(EMPTY_LIST_MESSAGE);
     }
 }

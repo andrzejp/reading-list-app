@@ -1,7 +1,14 @@
 package io.prochyra.readinglist;
 
-import io.prochyra.readinglist.domain.*;
-import io.prochyra.readinglist.external.*;
+import io.prochyra.readinglist.application.*;
+import io.prochyra.readinglist.external.catalogue.Catalogue;
+import io.prochyra.readinglist.external.catalogue.CatalogueException;
+import io.prochyra.readinglist.external.catalogue.GoogleBookAdapter;
+import io.prochyra.readinglist.external.catalogue.GoogleBooksCatalogue;
+import io.prochyra.readinglist.external.console.CommandLineConsole;
+import io.prochyra.readinglist.external.console.Console;
+import io.prochyra.readinglist.external.console.ConsoleException;
+import io.prochyra.readinglist.external.repo.InMemoryBookRepository;
 
 import java.util.List;
 

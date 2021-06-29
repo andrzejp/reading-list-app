@@ -1,6 +1,8 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.external.catalogue;
 
-import io.prochyra.readinglist.domain.CatalogueException;
+import io.prochyra.readinglist.external.catalogue.CatalogueException;
+import io.prochyra.readinglist.external.catalogue.GoogleBookAdapter;
+import io.prochyra.readinglist.external.catalogue.GoogleBooksCatalogue;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;

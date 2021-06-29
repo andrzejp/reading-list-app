@@ -1,6 +1,6 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.external.catalogue;
 
-import io.prochyra.readinglist.domain.Book;
+import io.prochyra.readinglist.application.Book;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonString;
 import jakarta.json.bind.adapter.JsonbAdapter;

@@ -1,7 +1,6 @@
-package io.prochyra.readinglist.external;
+package io.prochyra.readinglist.external.repo;
 
-import io.prochyra.readinglist.domain.Book;
-import io.prochyra.readinglist.domain.BookRepository;
+import io.prochyra.readinglist.application.Book;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,4 @@
-package io.prochyra.readinglist.external;
-
-import io.prochyra.readinglist.domain.Console;
-import io.prochyra.readinglist.domain.ConsoleException;
+package io.prochyra.readinglist.external.console;
 
 import java.util.Scanner;
 

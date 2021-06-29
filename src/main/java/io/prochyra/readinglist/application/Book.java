@@ -1,4 +1,4 @@
-package io.prochyra.readinglist.domain;
+package io.prochyra.readinglist.application;
 
 import java.util.List;
 
