@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
-        <junit.jupiter.version>5.7.2</junit.jupiter.version>
+        <junit.jupiter.version>5.8.0</junit.jupiter.version>
         <assertj.version>3.20.2</assertj.version>
         <mockito.version>3.12.4</mockito.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
