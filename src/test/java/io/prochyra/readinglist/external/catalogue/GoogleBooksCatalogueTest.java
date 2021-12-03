@@ -80,15 +80,6 @@ class GoogleBooksCatalogueTest extends WireMockTest {
     }
 
     @Test
-    void should_throw_a_CatalogueException_on_interrupted_thread() {
-        Thread.currentThread().interrupt();
-
-        thenExceptionOfType(CatalogueException.class)
-                .isThrownBy(() -> catalogue.find("anything"))
-                .withMessage("There was a problem accessing the Google Books API");
-    }
-
-    @Test
     void should_throw_a_CatalogueException_on_IO_error() {
         givenThat(get(anyUrl())
                 .willReturn(aResponse().withFault(RANDOM_DATA_THEN_CLOSE)));
